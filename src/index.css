@@ -3,5 +3,21 @@
   --white: #F7F7F7;
   --white-light: #FFFFFF;
   --gray: #E6E6E6;
+  --dark-gray: #808080;
   --black: #303030;
+
+  --font-text: 'Open Sans', sans-serif;
+  --font-title: 'Fredoka One', cursive;
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html{
+  font-size: 62.5%;
+  font-family: var(--font-text);
+  color: var(--black);
+  background-color: var(--gray);
 }

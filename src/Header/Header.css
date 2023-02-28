@@ -1,0 +1,58 @@
+.Header{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  padding: 0 15px;
+}
+.Header-menu{
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: var(--green);
+  cursor: pointer;
+}
+.Header-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Header-logo img{
+  width: 80px;
+}
+.Header-logo span{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  color: var(--white);
+  background-color: var(--green);
+  border-radius: 50%;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.Header-cart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--green);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.Header-cart span{
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: red;
+  border-radius: 50%;
+}

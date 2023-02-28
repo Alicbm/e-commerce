@@ -1,0 +1,8 @@
+@media(min-width:600px){
+  .Home-container{
+    width: 90%;
+    background-color: var(--white);
+    padding: 10px 0;
+    margin: 20px auto 0 auto;
+  }
+}

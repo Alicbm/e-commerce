@@ -4,15 +4,18 @@ import { Categories } from '../Categories'
 import { Comercial } from '../Comercial'
 import { Details } from '../Details'
 import { Recommendations } from '../Recommendations'
+import './Home.css'
 
 export const Home = () => {
   return (
-    <div>
+    <div className='Home'>
       <Carousel />
-      <div>
+      <div className='Home-container'>
         <Categories />
         <Recommendations />
-        <Comercial />
+      </div>
+      <Comercial />
+      <div className="Home-container">
         <Recommendations />
         <Details />
       </div>

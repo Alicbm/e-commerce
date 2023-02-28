@@ -1,5 +1,6 @@
 import React from 'react'
 import { categories } from '../data/data'
+import './Categories.css'
 
 export const Categories = () => {
   return (

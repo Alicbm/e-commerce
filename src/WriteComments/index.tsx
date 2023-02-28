@@ -1,17 +1,27 @@
 import React from 'react'
+import './WriteComments.css'
 
 export const WriteComments = () => {
   return (
-    <div>
-      <h1>Comments</h1>
-      <input type="text" placeholder='Name'/>
-      <textarea placeholder='Write a comment'></textarea>
-      <div>
-        <button>Good</button>
-        <button>Regular</button>
-        <button>Bad</button>
+    <div className='WriteComments'>
+      <h1 className='WriteComments-title'>Comments</h1>
+      <input 
+        className='WriteComments-input'
+        type="text" 
+        placeholder='Name'
+      />
+      <textarea 
+        className='WriteComments-textarea'
+        placeholder='Write a comment'
+      ></textarea>
+      <div className='WriteComments-options'>
+        <button className='WriteComments-good'>Good</button>
+        <button className='WriteComments-regular'>Regular</button>
+        <button className='WriteComments-bad'>Bad</button>
       </div>
-      <button>Post a comment</button>
+      <button className='WriteComments-post'>
+        Post a comment
+      </button>
     </div>
   )
 }

@@ -1,0 +1,37 @@
+.Comments{
+  width: 90%;
+  border-radius: 5px;
+  margin: 20px auto 0 auto;
+}
+.Comments-container{
+  width: 100%;
+  min-height: 100px;
+  background-color: var(--white);
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.Comments-container__head h4{
+  font-size: 1.7rem;
+  font-family: var(--font-title);
+  margin-top: 10px;
+}
+.Comments-container__head div{
+  margin-top: 5px;
+}
+.Comments-container__head div span{
+  font-size: 1.5rem;
+  color: yellow;
+}
+.Comments-container p{
+  font-size: 1.4rem;
+}
+@media(min-width: 700px){
+  .Comments{
+    width: 80%;
+  }
+  .Comments-container__head{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+}

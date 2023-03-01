@@ -50,3 +50,23 @@
     background-color: var(--gray);
   }
 }
+@media(min-width: 1000px){
+  .Categories-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media(min-width: 1150px){
+  .Categories{
+    min-width: 800px;
+  }
+  .Categories-title{
+    margin: 20px 0;
+
+  }
+  .Categories-container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

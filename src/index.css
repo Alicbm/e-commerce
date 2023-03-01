@@ -21,3 +21,17 @@ html{
   color: var(--black);
   background-color: var(--gray);
 }
+.withouth-scroll{
+  overflow-y: hidden;
+}
+@media(min-width: 1000px){
+  #root{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .withouth-scroll{
+    overflow-y: scroll;
+  }
+}

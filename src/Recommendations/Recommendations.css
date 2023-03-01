@@ -87,3 +87,12 @@
     background-color: var(--gray);
   }
 }
+@media(min-width: 1150px){
+  .Recommendations{
+    max-width: 850px;
+  }
+  .Recommendations-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

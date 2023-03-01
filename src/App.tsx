@@ -7,10 +7,12 @@ import { SelectedProduct } from './SelectedProduct';
 import { SpecificProduct } from './SpecificProduct';
 import { Footer } from './Footer';
 import './App.css';
+import { HeaderSearch } from './HeaderSearch';
 
 function App() {
   return (
     <HashRouter>
+      <HeaderSearch />
       <Header />
       <Routes>
         <Route path='/' element={<Home />}/>

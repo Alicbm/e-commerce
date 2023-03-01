@@ -6,3 +6,8 @@
     margin: 20px auto 0 auto;
   }
 }
+@media(min-width: 1000px){
+  .SelectedProduct{
+    width: calc(100% - 230px);
+  }
+}

@@ -28,3 +28,8 @@
   font-family: var(--font-title);
   color: var(--white);
 }
+@media(min-width: 1000px){
+  .Filter{
+    height: 60px;
+  }
+}

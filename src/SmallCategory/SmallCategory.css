@@ -1,0 +1,29 @@
+.SmallCategory-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.SmallCategory-title p{
+  font-size: 1.8rem;
+  padding-left: 10px;
+}
+.SmallCategory-title span{
+  font-size: 3rem;
+  color: var(--green);
+  cursor: pointer;
+}
+.SmallCategory-list__item{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  font-family: var(--font-text);
+  font-size: 1.4rem;
+  padding-left: 20px;
+
+}
+.SmallCategory-list__item span{
+  margin-right: 5px;
+  cursor: pointer;
+} 

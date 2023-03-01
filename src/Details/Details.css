@@ -17,3 +17,8 @@
   font-size: 1.2rem;
   line-height: 2rem;
 }
+@media(min-width: 1000px){
+  .Details{
+    width: 50%;
+  }
+}

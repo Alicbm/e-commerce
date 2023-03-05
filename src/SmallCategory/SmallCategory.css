@@ -13,6 +13,12 @@
   color: var(--green);
   cursor: pointer;
 }
+.SmallCategory-checkbox{
+  display: none;
+}
+.SmallCategory-list {
+  display: none;
+}
 .SmallCategory-list__item{
   display: flex;
   justify-content: flex-start;
@@ -21,9 +27,16 @@
   font-family: var(--font-text);
   font-size: 1.4rem;
   padding-left: 20px;
-
+  margin-bottom: 5px;
 }
-.SmallCategory-list__item span{
+.SmallCategory-list__item label input{
   margin-right: 5px;
   cursor: pointer;
 } 
+.true-show {
+  display: block;
+}
+/* .SmallCategory-list__item span{
+  margin-right: 5px;
+  cursor: pointer;
+}  */

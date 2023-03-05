@@ -71,3 +71,15 @@
   filter: invert(1);
   margin-right: 10px;
 }
+@media(min-width: 1000px){
+  .FilterModal{
+    width: 230px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  .FilterModal-container{
+    width: 230px;
+  }
+}

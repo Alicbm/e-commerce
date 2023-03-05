@@ -6,7 +6,7 @@ export const products = [
     description: "The perfect cell phone for photography lovers! With a high-quality camera and advanced photo editing options, you'll never miss an important moment.",
     image: "https://raw.githubusercontent.com/Alicbm/store-image/master/tecnology/cell-1.png",
     brand: "IPHONE",
-    favorite: false
+    favorite: true
   },
   {
     id: 2,

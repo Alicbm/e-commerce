@@ -1,0 +1,105 @@
+.SortModal{
+  width: 100%;
+  height: 250px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+
+  transform: translateY(100%);
+  transition: transform 0.7s ease-in-out;
+}
+.SortModal.sort-active{
+  transform: translateY(0%);
+  transition: transform 0.7s ease-in-out;
+}
+.SortModal-title{
+  width: 100%;
+  font-size: 2.5rem;
+  font-family: var(--font-title);
+  color: var(--black);
+  text-align: center;
+}
+.SortModal-container{
+  width: 100%;
+}
+.SortModal-container div{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 5px auto;
+  cursor: pointer;
+}
+.SortModal-container div:hover{
+  background-color: var(--green);
+  color: var(--white);
+  border-radius: 10px;
+}
+.SortModal-container div p{
+  font-size: 1.8rem;
+  text-align: center;
+}
+.SortModal-close{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 3rem;
+  color: var(--green);
+  cursor: pointer;
+}
+.SortModal-close:hover{
+  transform: rotate(360deg);
+  transition: transform ease-in-out 1s;
+}
+.sort-select{
+  background-color: var(--green);
+  color: var(--white);
+  border-radius: 10px;
+}
+.SortModal-container .sort-select:hover{
+  background-color: #77bb2e;
+}
+@media(min-width: 1000px){
+  .SortModal{
+    width: calc(100% - 230px);
+    height: 80px;
+    position: fixed;
+    right: 0;
+    left: 230px;
+    bottom: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--black);
+    color: var(--white);
+  }
+  .SortModal-close{
+    top: 25px;
+    cursor: pointer;
+  }
+  .SortModal-title{
+    width: auto;
+    color: var(--white);
+  }
+  .SortModal-container{
+    max-width: 450px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .SortModal-container div{
+    margin-right: 20px;
+  }
+  .SortModal-container div p{
+    font-size: 1.6rem;
+    margin-bottom: 0;
+  }
+}

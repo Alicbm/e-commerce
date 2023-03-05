@@ -32,4 +32,7 @@
   .Filter{
     height: 60px;
   }
+  .Filter:hover{
+    background-color: #2b2b2b;
+  }
 }

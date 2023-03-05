@@ -3,28 +3,26 @@ import { FaHandHoldingUsd } from "react-icons/fa";
 import { FaTruck } from "react-icons/fa";
 import { FaAward } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+import { useAppSelector } from "../store/hooks";
 import "./Description.css";
 
 export const Description = () => {
+  const { productSelected } = useAppSelector(state => state.mainReducer)
+  
   return (
     <div className="Description">
       <div className="Description-container">
         <div className="Description-image">
           <img
-            src="https://raw.githubusercontent.com/Alicbm/store-image/master/tecnology/laptop-4.png"
+            src={productSelected?.image}
             alt="Product Selected"
           />
         </div>
         <div className="Description-info">
-          <p className="Description-info__brand">HP</p>
-          <h3 className="Description-info__name">Laptop HP Victus 15</h3>
-          <h2 className="Description-info__price">USD 1.122</h2>
-          <p className="Description-info__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum numquam
-            corporis, rerum dolorum dicta quod amet iste neque itaque qui, ea
-            veniam porro, nisi repellat? Accusamus incidunt id architecto
-            expedita.
-          </p>
+          <p className="Description-info__brand">{productSelected?.brand}</p>
+          <h3 className="Description-info__name">{productSelected?.name}</h3>
+          <h2 className="Description-info__price">USD {productSelected?.price}</h2>
+          <p className="Description-info__description">{productSelected?.description}</p>
           <div className="Description-info__buttons">
             <button className="Description-info__buy">Buy Product</button>
             <button className="Description-info__add">Add to Cart</button>

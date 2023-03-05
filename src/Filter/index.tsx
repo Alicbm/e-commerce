@@ -1,7 +1,7 @@
 import React from "react";
 import { FaSortAmountUpAlt } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa";
-import { filterModal as setFilter } from "../features/mainSlices";
+import { filterModal as setFilter, sortModal as setSort } from "../features/mainSlices";
 import { useAppDispatch } from "../store/hooks";
 import "./Filter.css";
 
@@ -10,7 +10,9 @@ export const Filter = () => {
 
   return (
     <div className="Filter">
-      <div className="Filter-sort">
+      <div 
+        onClick={() => dispatch(setSort(true))}
+        className="Filter-sort">
         <span>
           <FaSortAmountUpAlt />
         </span>

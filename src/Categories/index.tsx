@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { categories } from '../data/data'
 import { nameCategory as setNameCategory } from '../features/mainSlices'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { ArrayCategory } from '../types'
@@ -39,7 +38,9 @@ export const Categories = () => {
           url?.map((category: ArrayCategory) => (
             <div 
               onClick={() => handleCategories(category.name)}
-              className='Categories-container__item'>
+              className='Categories-container__item'
+              key={category.id}
+              >
               <div className='Categories-container__item-image'>
                 <img src={category.image} alt={category.name} />
               </div>

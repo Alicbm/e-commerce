@@ -1,19 +1,31 @@
 import React from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowUp } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import {
+  typeProductSelected,
+  nameCategory as setNameCategory,
+} from "../features/mainSlices";
 import { AnyAction } from "redux";
 import { useAppDispatch } from "../store/hooks";
-import { ArrayProducts } from "../types";
+import { ArrayCategory, ArrayProducts } from "../types";
 import "./SmallCategory.css";
 
 export const SmallCategory = (prop: {
   state: boolean;
   setState: (res: boolean) => AnyAction;
-  title: string;
-  categoryProduct: ArrayProducts[];
+  category: ArrayCategory;
 }) => {
+
+  const navigate = useNavigate();
+
   const dispatch = useAppDispatch();
   const dataFinal: string[] = [];
+
+  const handleCategories = () => {
+    navigate("/products");
+    dispatch(setNameCategory(prop.category.name));
+  };
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(prop.setState(event.target.checked));
@@ -22,16 +34,38 @@ export const SmallCategory = (prop: {
   const listTypeProducts = (category: ArrayProducts[]) => {
     category.map((product: ArrayProducts) => {
       const nameProduct = product.product;
-      const findProduct = dataFinal.find((product) => product == nameProduct);
+      const findProduct = dataFinal.find((product) => product === nameProduct);
       if (!findProduct) {
         dataFinal.push(nameProduct);
       }
+      return findProduct;
     });
   };
-  listTypeProducts(prop.categoryProduct);  
+  listTypeProducts(prop.category.products);
+
+  const handleCheckHeart = () => {
+
+    const inputElements = Array.from(
+      document.querySelectorAll("input")
+    ) as HTMLInputElement[];
+
+    let newArray: ArrayProducts[] = [];
+
+      inputElements.forEach((type: HTMLInputElement) => {
+        if (type.checked) {
+          prop.category.products.filter((item: ArrayProducts) => {
+            if (item.product === type.value) {
+              return newArray.push(item);
+            }
+          });
+        }
+      });
+
+      dispatch(typeProductSelected([...newArray]));
+  };
 
   return (
-    <div className="SmallCategory">
+    <div className="SmallCategory" key={prop.category.id}>
       <label className="SmallCategory-title">
         <input
           onChange={handleCheckboxChange}
@@ -39,7 +73,7 @@ export const SmallCategory = (prop: {
           checked={prop.state}
           className="SmallCategory-checkbox"
         />
-        <p>{prop.title}</p>
+        <p onClick={handleCategories}>{prop.category.name}</p>
         <span>
           {!prop.state ? <MdKeyboardArrowDown /> : <MdKeyboardArrowUp />}
         </span>
@@ -51,10 +85,15 @@ export const SmallCategory = (prop: {
             : "SmallCategory"
         }
       >
-        {dataFinal.map((product) => (
-          <li className="SmallCategory-list__item">
+        {dataFinal.map((product: string) => (
+          <li
+            onClick={handleCategories}
+            className="SmallCategory-list__item"
+            key={product}
+          >
             <label>
               <input
+                onChange={handleCheckHeart}
                 type="checkbox"
                 value={product}
                 className="categories-checkbox"

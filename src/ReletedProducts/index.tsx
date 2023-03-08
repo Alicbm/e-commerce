@@ -1,9 +1,8 @@
 import React from "react";
-import { products } from "../data/data";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
-import "./ReletedProducts.css";
 import { ArrayProducts } from "../types";
+import "./ReletedProducts.css";
 
 export const ReletedProducts = (prop: {data: ArrayProducts[]}) => {
   return (
@@ -11,7 +10,7 @@ export const ReletedProducts = (prop: {data: ArrayProducts[]}) => {
       <h2 className="ReletedProducts-title">Related Products</h2>
       <div className="ReletedProducts-container">
         {prop.data.map((product) => (
-          <div className="ReletedProducts-container__products">
+          <div className="ReletedProducts-container__products" key={product.id}>
             <div className="ReletedProducts-container__products-img">
               <img src={product.image} alt={product.description} />
             </div>

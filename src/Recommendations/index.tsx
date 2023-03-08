@@ -29,7 +29,7 @@ export const Recommendations = (prop: {title: string, data: ArrayProducts[]}) =>
       favorite: !favResponse,
     };
 
-    const res = await fetch(finalUrl + "/" + id, {
+    await fetch(finalUrl + "/" + id, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

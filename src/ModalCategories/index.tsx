@@ -6,26 +6,20 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { 
   modal as setModal,
   category1 as setCat1,
-  category2 as setCat2,
-  category3 as setCat3,
-  category4 as setCat4,
-  category5 as setCat5,
-  category6 as setCat6,
+  // category2 as setCat2,
+  // category3 as setCat3,
+  // category4 as setCat4,
+  // category5 as setCat5,
+  // category6 as setCat6,
  } from '../features/mainSlices'
 import "./ModalCategories.css";
-import { ArrayCategory, ArrayProducts } from "../types";
-// import { useNavigate } from "react-router-dom";
+import { ArrayCategory } from "../types";
 
 export const ModalCategories = () => {
   const { 
     modal,
     filterModal,
     category1,
-    // category2,
-    // category3,
-    // category4,
-    // category5,
-    // category6,     
   } = useAppSelector((state) => state.mainReducer);
   const dispatch = useAppDispatch();
   // const navigate = useNavigate();
@@ -70,10 +64,10 @@ export const ModalCategories = () => {
           {
             url?.map(category => (
               <SmallCategory 
-                title={category.name} 
                 state={category1} 
                 setState={setCat1}
-                categoryProduct={category.products}
+                category={category}
+                key={category.id}
               />
             ))
           }

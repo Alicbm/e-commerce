@@ -27,6 +27,7 @@ const initialState = {
   sortModal: false,
   nameCategory: "",
   productSelected: descriptionProduct,
+  typeProductSelected: [],
   category1: true,
   category2: false,
   category3: false,
@@ -66,6 +67,9 @@ export const mainSlice = createSlice({
     productSelected: (state, action) => {
       state.productSelected = action.payload;
     },
+    typeProductSelected: (state, action) => {
+      state.typeProductSelected = action.payload;
+    },
     category1: (state, action) => {
       state.category1 = action.payload;
     },
@@ -95,6 +99,7 @@ export const {
   sortModal,
   nameCategory,
   productSelected,
+  typeProductSelected,
   category1,
   category2,
   category3,

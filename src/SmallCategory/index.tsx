@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 import {
   typeProductSelected,
   nameCategory as setNameCategory,
+  refreshValues as setRefresh,
+  relevantProduct
 } from "../features/mainSlices";
 import { AnyAction } from "redux";
-import { useAppDispatch } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { ArrayCategory, ArrayProducts } from "../types";
 import "./SmallCategory.css";
 
@@ -16,6 +18,8 @@ export const SmallCategory = (prop: {
   setState: (res: boolean) => AnyAction;
   category: ArrayCategory;
 }) => {
+
+  const { refreshValues } = useAppSelector(state => state.mainReducer)
 
   const navigate = useNavigate();
 
@@ -62,6 +66,9 @@ export const SmallCategory = (prop: {
       });
 
       dispatch(typeProductSelected([...newArray]));
+      dispatch(setRefresh(!refreshValues))
+      dispatch(relevantProduct([...newArray]))
+
   };
 
   return (

@@ -28,6 +28,8 @@ const initialState = {
   nameCategory: "",
   productSelected: descriptionProduct,
   typeProductSelected: [],
+  relevantProduct: [],
+  refreshValues: false,
   category1: true,
   category2: false,
   category3: false,
@@ -70,6 +72,12 @@ export const mainSlice = createSlice({
     typeProductSelected: (state, action) => {
       state.typeProductSelected = action.payload;
     },
+    relevantProduct: (state, action) => {
+      state.relevantProduct = action.payload
+    },
+    refreshValues: (state, action) => {
+      state.refreshValues = action.payload
+    },
     category1: (state, action) => {
       state.category1 = action.payload;
     },
@@ -100,6 +108,8 @@ export const {
   nameCategory,
   productSelected,
   typeProductSelected,
+  relevantProduct,
+  refreshValues,
   category1,
   category2,
   category3,

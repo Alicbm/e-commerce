@@ -1,9 +1,9 @@
 import React from "react";
-import { CgClose } from 'react-icons/cg'
+import { CgClose } from "react-icons/cg";
 import { ImHome } from "react-icons/im";
 import { SmallCategory } from "../SmallCategory";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { 
+import {
   modal as setModal,
   category1 as setCat1,
   // category2 as setCat2,
@@ -11,47 +11,49 @@ import {
   // category4 as setCat4,
   // category5 as setCat5,
   // category6 as setCat6,
- } from '../features/mainSlices'
+} from "../features/mainSlices";
 import "./ModalCategories.css";
 import { ArrayCategory } from "../types";
 
 export const ModalCategories = () => {
-  const { 
-    modal,
-    filterModal,
-    category1,
-  } = useAppSelector((state) => state.mainReducer);
+  const { modal, filterModal, category1 } = useAppSelector(
+    (state) => state.mainReducer
+  );
   const dispatch = useAppDispatch();
   // const navigate = useNavigate();
-  
-  const { mainUrl } = useAppSelector(state => state.mainReducer)
-  const finalUrl = mainUrl + '/categories'
 
-  const [url, setUrl] = React.useState <ArrayCategory[]>([]);
+  const { mainUrl } = useAppSelector((state) => state.mainReducer);
+  const finalUrl = mainUrl + "/categories";
 
-    React.useEffect(() => {
-      const fetUrl = async () => {
-        const res = await fetch(finalUrl)
-        const json = await res.json();
-        
-        setUrl(json)
-      } 
-  
-      fetUrl()
-    }, [finalUrl])
+  const [url, setUrl] = React.useState<ArrayCategory[]>([]);
 
-  if(modal || filterModal){
-    document.querySelector('body')?.classList.add('withouth-scroll')
-  }else{
-    document.querySelector('body')?.classList.remove('withouth-scroll')
+  React.useEffect(() => {
+    const fetUrl = async () => {
+      const res = await fetch(finalUrl);
+      const json = await res.json();
+
+      setUrl(json);
+    };
+
+    fetUrl();
+  }, [finalUrl]);
+
+  if (modal || filterModal) {
+    document.querySelector("body")?.classList.add("withouth-scroll");
+  } else {
+    document.querySelector("body")?.classList.remove("withouth-scroll");
   }
 
   return (
-    <div className={modal ? 'ModalCategories scroll-active' : 'ModalCategories'}>
-      <span 
+    <div
+      className={modal ? "ModalCategories scroll-active" : "ModalCategories"}
+    >
+      <span
         className="ModalCategories-close"
         onClick={() => dispatch(setModal(false))}
-      ><CgClose /></span>
+      >
+        <CgClose />
+      </span>
       <div className="ModalCategories-container">
         <div className="ModalCategories-container__home">
           <p>Home</p>
@@ -60,17 +62,17 @@ export const ModalCategories = () => {
           </span>
         </div>
         <div className="ModalCategories-container__categories">
-          <p className="ModalCategories-container__categories-title">Categories</p>
-          {
-            url?.map(category => (
-              <SmallCategory 
-                state={category1} 
-                setState={setCat1}
-                category={category}
-                key={category.id}
-              />
-            ))
-          }
+          <p className="ModalCategories-container__categories-title">
+            Categories
+          </p>
+          {url?.map((category) => (
+            <SmallCategory
+              state={category1}
+              setState={setCat1}
+              category={category}
+              key={category.id}
+            />
+          ))}
         </div>
       </div>
     </div>

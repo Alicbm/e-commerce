@@ -67,9 +67,8 @@
   margin-bottom: 10px;
   margin-left: 10px;
 }
-.FilterModal-brands__list-item span{
-  filter: invert(1);
-  margin-right: 10px;
+.brand-checkbox{
+  margin-right: 5px;
 }
 @media(min-width: 1000px){
   .FilterModal{

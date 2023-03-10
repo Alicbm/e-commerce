@@ -6,7 +6,7 @@ import { Recommendations } from '../Recommendations'
 import { SortModal } from '../SortModal'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { ArrayProducts } from '../types'
-import { typeProductSelected as setType } from '../features/mainSlices'
+import { typeProductSelected as setType, relevantProduct } from '../features/mainSlices'
 import './SelectedProducts.css'
 
 export const SelectedProduct = () => {
@@ -23,6 +23,7 @@ export const SelectedProduct = () => {
 
       const data = json.find((category: ArrayProducts)  => category.name === nameCategory);      
       dispatch(setType(data.products))
+      dispatch(relevantProduct(data.products))
     };
 
     fetUrl();

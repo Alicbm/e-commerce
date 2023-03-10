@@ -1,16 +1,17 @@
-import React from 'react'
-import { CgClose } from 'react-icons/cg'
-import { sortModal as setSort } from '../features/mainSlices'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { ArrayProducts } from '../types'
-import { typeProductSelected as setType } from '../features/mainSlices'
-import './SortModal.css'
+import React from "react";
+import { CgClose } from "react-icons/cg";
+import { sortModal as setSort } from "../features/mainSlices";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { ArrayProducts } from "../types";
+import { typeProductSelected as setType } from "../features/mainSlices";
+import "./SortModal.css";
 
 export const SortModal = () => {
-  const { sortModal, typeProductSelected, relevantProduct, refreshValues } = useAppSelector(state => state.mainReducer)
-  const [option, setOption] = React.useState('relevant');
-  
-  const dispatch = useAppDispatch()
+  const { sortModal, typeProductSelected, relevantProduct, refreshValues } =
+    useAppSelector((state) => state.mainReducer);
+  const [option, setOption] = React.useState("relevant");
+
+  const dispatch = useAppDispatch();
 
   React.useEffect(() => {
     if (option === "lower") {
@@ -28,35 +29,39 @@ export const SortModal = () => {
       );
       dispatch(setType(newArray));
     } else if (option === "relevant") {
-      dispatch(setType(relevantProduct))
+      dispatch(setType(relevantProduct));
     }
   }, [option, refreshValues]);
-  
+
   return (
-    <div className={sortModal ? 'SortModal sort-active' : 'SortModal'}>
-      <span 
+    <div className={sortModal ? "SortModal sort-active" : "SortModal"}>
+      <span
         onClick={() => dispatch(setSort(false))}
-        className='SortModal-close'>
+        className="SortModal-close"
+      >
         <CgClose />
       </span>
-      <h1 className='SortModal-title'>Sort by</h1>
-      <div className='SortModal-container'>
+      <h1 className="SortModal-title">Sort by</h1>
+      <div className="SortModal-container">
         <div
-          onClick={() => setOption('relevant')} 
-          className={option === 'relevant' ? 'sort-select' : ''}>
+          onClick={() => setOption("relevant")}
+          className={option === "relevant" ? "sort-select" : ""}
+        >
           <p>More relevant</p>
         </div>
         <div
-          onClick={() => setOption('lower')} 
-          className={option === 'lower' ? 'sort-select' : ''}>
+          onClick={() => setOption("lower")}
+          className={option === "lower" ? "sort-select" : ""}
+        >
           <p>Lower price</p>
         </div>
         <div
-          onClick={() => setOption('higher')} 
-          className={option === 'higher' ? 'sort-select' : ''}>
+          onClick={() => setOption("higher")}
+          className={option === "higher" ? "sort-select" : ""}
+        >
           <p>Higher price</p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

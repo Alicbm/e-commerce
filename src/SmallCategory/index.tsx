@@ -6,7 +6,6 @@ import {
   typeProductSelected,
   nameCategory as setNameCategory,
   refreshValues as setRefresh,
-  relevantProduct
 } from "../features/mainSlices";
 import { AnyAction } from "redux";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
@@ -18,9 +17,7 @@ export const SmallCategory = (prop: {
   setState: (res: boolean) => AnyAction;
   category: ArrayCategory;
 }) => {
-
-  const { refreshValues } = useAppSelector(state => state.mainReducer)
-
+  const { refreshValues } = useAppSelector((state) => state.mainReducer);
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -48,27 +45,24 @@ export const SmallCategory = (prop: {
   listTypeProducts(prop.category.products);
 
   const handleCheckHeart = () => {
-
     const inputElements = Array.from(
       document.querySelectorAll("input")
     ) as HTMLInputElement[];
 
     let newArray: ArrayProducts[] = [];
 
-      inputElements.forEach((type: HTMLInputElement) => {
-        if (type.checked) {
-          prop.category.products.filter((item: ArrayProducts) => {
-            if (item.product === type.value) {
-              return newArray.push(item);
-            }
-          });
-        }
-      });
+    inputElements.forEach((type: HTMLInputElement) => {
+      if (type.checked) {
+        prop.category.products.filter((item: ArrayProducts) => {
+          if (item.product === type.value) {
+            return newArray.push(item);
+          }
+        });
+      }
+    });
 
-      dispatch(typeProductSelected([...newArray]));
-      dispatch(setRefresh(!refreshValues))
-      dispatch(relevantProduct([...newArray]))
-
+    dispatch(typeProductSelected([...newArray]));
+    dispatch(setRefresh(!refreshValues));
   };
 
   return (

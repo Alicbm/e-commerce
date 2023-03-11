@@ -36,7 +36,7 @@
 .ReletedProducts-container__products-img{
   display: grid;
   place-content: center;
-  max-height: 100px;
+  height: 80px;
 }
 .ReletedProducts-container__products-img img{
   min-width: 50px;
@@ -83,14 +83,33 @@
   background-color: #7db83e;
   cursor: pointer;
 }
-.ReletedProducts-container__products-heart{
+
+.ReletedProducts-container__products-heart label{
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 2rem;
-  color: rgb(252, 64, 64);
   cursor: pointer;
 }
+.ReletedProducts-container__products-heart label span:hover{
+  color: rgb(252, 64, 64);
+}
+.ReletedProducts-container__products-heart label input{
+  display: none;
+}
+.ReletedProducts-container__products-heart label input:checked + span{
+  color: rgb(252, 64, 64);
+}
+.ReletedProducts-container__products-heart label input:checked + .favorite-selected{
+  color: #a0a0a0;
+}
+.favorite-selected{
+  color: rgb(252, 64, 64);
+}
+.favorite-unselected{
+  color: #a0a0a0;
+}
+
 @media(min-width:700px){
   .ReletedProducts{
     background-color: var(--white);

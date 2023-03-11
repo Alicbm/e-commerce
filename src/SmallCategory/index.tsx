@@ -12,7 +12,7 @@ import { ArrayCategory, ArrayProducts } from "../types";
 import "./SmallCategory.css";
 
 export const SmallCategory = (prop: { category: ArrayCategory }) => {
-  const [select, setSelect] = React.useState<boolean>(false);
+  const [select, setSelect] = React.useState<boolean>(true);
 
   const { refreshValues } = useAppSelector((state) => state.mainReducer);
   const navigate = useNavigate();

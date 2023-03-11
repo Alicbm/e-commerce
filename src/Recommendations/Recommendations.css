@@ -18,7 +18,7 @@
 .Recommendations-container__products{
   width: 95%;
   max-width: 170px;
-  height: 230px;
+  height: 240px;
   position: relative;
   background-color: var(--white);
   padding: 15px;
@@ -27,7 +27,7 @@
 .Recommendations-container__products-img{
   display: grid;
   place-content: center;
-  max-height: 100px;
+  height: 80px;
 }
 .Recommendations-container__products-img img{
   min-width: 50px;
@@ -79,8 +79,25 @@
   top: 10px;
   right: 10px;
   font-size: 2rem;
-  color: rgb(252, 64, 64);
   cursor: pointer;
+}
+.Recommendations-container__products-heart label span:hover{
+  color: rgb(252, 64, 64);
+}
+.Recommendations-container__products-heart label input{
+  display: none;
+}
+.Recommendations-container__products-heart label input:checked + span{
+  color: rgb(252, 64, 64);
+}
+.Recommendations-container__products-heart label input:checked + .favorite-selected{
+  color: #a0a0a0;
+}
+.heart-selected{
+  color: rgb(252, 64, 64);
+}
+.heart-unselected{
+  color: #a0a0a0;
 }
 @media(min-width:600px){
   .Recommendations{
@@ -94,6 +111,7 @@
     gap: 10px;
   }
   .Recommendations-container__products{
+    height: 235px;
     background-color: var(--gray);
     cursor: pointer;
   }

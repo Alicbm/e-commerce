@@ -36,8 +36,6 @@ export const ModalCategories = () => {
     document.querySelector("body")?.classList.remove("withouth-scroll");
   }
 
-  console.log(url);
-
   return (
     <div
       className={modal ? "ModalCategories scroll-active" : "ModalCategories"}

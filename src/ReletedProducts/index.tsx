@@ -2,19 +2,39 @@ import React from "react";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { ArrayProducts } from "../types";
-import { productSelected as setProduct } from '../features/mainSlices'
+import { productSelected as setProduct } from "../features/mainSlices";
 import "./ReletedProducts.css";
 
-export const ReletedProducts = (prop: {data: ArrayProducts[]}) => {
+export const ReletedProducts = (prop: { data: ArrayProducts[] }) => {
+  const { mainUrl } = useAppSelector(state => state.mainReducer)
+  const finalUrl = mainUrl + "/products";
+
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const sendData = (product: ArrayProducts) => {
-    dispatch(setProduct(product))
-    navigate('/description')
-  }
+    dispatch(setProduct(product));
+    navigate("/description");
+  };
+
+  const handleChangeFavorite = async (
+    id: number,
+    favResponse: boolean
+  ) => {
+    const data = {
+      favorite: !favResponse,
+    };
+
+    await fetch(finalUrl + "/" + id, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  };
 
   return (
     <div className="ReletedProducts">
@@ -40,14 +60,22 @@ export const ReletedProducts = (prop: {data: ArrayProducts[]}) => {
                 USD {product.price}
               </h4>
               <p className="ReletedProducts-container__products-description">
-                Aqui va una pequeña descripcion del producto
+                {product.description.split(" ").splice(0, 10).join(" ")}...
               </p>
             </div>
             <div className="ReletedProducts-container__products-cart">
               <BsFillCartPlusFill />
             </div>
             <div className="ReletedProducts-container__products-heart">
-              <FaHeart />
+              <label>
+                <input 
+                  onChange={() => handleChangeFavorite(product.id, product.favorite)}
+                  type="checkbox" 
+                />
+                <span className={product.favorite ? 'favorite-selected' : 'favorite-unselected'}>
+                  <FaHeart />
+                </span>
+              </label>
             </div>
           </div>
         ))}

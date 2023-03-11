@@ -14,13 +14,14 @@ import {
 } from "../features/mainSlices";
 import "./ModalCategories.css";
 import { ArrayCategory } from "../types";
+import { useNavigate } from "react-router-dom";
 
 export const ModalCategories = () => {
   const { modal, filterModal, category1 } = useAppSelector(
     (state) => state.mainReducer
   );
   const dispatch = useAppDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { mainUrl } = useAppSelector((state) => state.mainReducer);
   const finalUrl = mainUrl + "/categories";
@@ -55,7 +56,10 @@ export const ModalCategories = () => {
         <CgClose />
       </span>
       <div className="ModalCategories-container">
-        <div className="ModalCategories-container__home">
+        <div 
+          onClick={() => navigate('/')}
+          className="ModalCategories-container__home"
+        >
           <p>Home</p>
           <span>
             <ImHome />

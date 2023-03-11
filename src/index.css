@@ -21,6 +21,19 @@ html{
   color: var(--black);
   background-color: var(--gray);
 }
+body{
+  scrollbar-width: thin;
+}
+body::-webkit-scrollbar{
+  width: 5px;
+  background: var(--gray);
+}
+body::-webkit-scrollbar-thumb{
+  width: 5px;
+  border-radius: 10px;
+  background-color: var(--dark-gray);
+}
+
 .withouth-scroll{
   overflow-y: hidden;
 }

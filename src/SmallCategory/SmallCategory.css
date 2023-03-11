@@ -29,6 +29,9 @@
   padding-left: 20px;
   margin-bottom: 5px;
 }
+.SmallCategory-list__item label{
+  cursor: pointer;
+}
 .SmallCategory-list__item label input{
   margin-right: 5px;
   cursor: pointer;

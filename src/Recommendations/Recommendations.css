@@ -27,12 +27,13 @@
 .Recommendations-container__products-img{
   display: grid;
   place-content: center;
-  height: 95px;
+  max-height: 100px;
 }
 .Recommendations-container__products-img img{
   min-width: 50px;
-  max-width: 70px;
-  max-height: 95px;
+  max-width: 95%;
+  max-height: 100px;
+  margin: 0 auto;
 }
 .Recommendations-container__products-brand{
   font-size: 1rem;
@@ -73,12 +74,13 @@
   background-color: #77bb2e;
   cursor: pointer;
 }
-.Recommendations-container__products-heart{
+.Recommendations-container__products-heart label{
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 2rem;
   color: rgb(252, 64, 64);
+  cursor: pointer;
 }
 @media(min-width:600px){
   .Recommendations{
@@ -97,8 +99,7 @@
   }
   .Recommendations-container__products:hover{
     background-color: #dfdfdf;
-    transform: scale(1.03);
-    transition: transform 0.3s ease;
+    border: 1px solid var(--green);
   }
 }
 @media(min-width: 1150px){

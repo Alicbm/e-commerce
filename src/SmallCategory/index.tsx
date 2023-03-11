@@ -17,6 +17,7 @@ export const SmallCategory = (prop: {
   setState: (res: boolean) => AnyAction;
   category: ArrayCategory;
 }) => {
+  
   const { refreshValues } = useAppSelector((state) => state.mainReducer);
   const navigate = useNavigate();
 

@@ -48,26 +48,31 @@ export const Recommendations = (prop: {title: string, data: ArrayProducts[]}) =>
       <h2 className="Recommendations-title">{prop.title}</h2>
       <div className="Recommendations-container">
         {prop.data?.map((product: ArrayProducts) => (
-          <div 
-            className="Recommendations-container__products" 
-            onClick={() => sendData(product)}
+          <div
+            className="Recommendations-container__products"
             key={product.id}
           >
             <div className="Recommendations-container__products-img">
-              <img src={product.image} alt={product.description} />
+              <img 
+                src={product.image} 
+                alt={product.description} 
+                onClick={() => sendData(product)}
+              />
             </div>
-            <p className="Recommendations-container__products-brand">
-              {product.brand}
-            </p>
-            <p className="Recommendations-container__products-name">
-              {product.name}
-            </p>
-            <h4 className="Recommendations-container__products-price">
-              USD {product.price}
-            </h4>
-            <p className="Recommendations-container__products-description">
-              Aqui va una pequeña descripcion del producto
-            </p>
+            <div onClick={() => sendData(product)}>
+              <p className="Recommendations-container__products-brand">
+                {product.brand}
+              </p>
+              <p className="Recommendations-container__products-name">
+                {product.name}
+              </p>
+              <h4 className="Recommendations-container__products-price">
+                USD {product.price}
+              </h4>
+              <p className="Recommendations-container__products-description">
+                Aqui va una pequeña descripcion del producto
+              </p>
+            </div>
             <div className="Recommendations-container__products-cart">
               <BsFillCartPlusFill />
             </div>
@@ -76,7 +81,7 @@ export const Recommendations = (prop: {title: string, data: ArrayProducts[]}) =>
               className="Recommendations-container__products-heart"
             >
               <label>
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 {!product.favorite ? <FaRegHeart /> : <FaHeart />}
               </label>
             </div>

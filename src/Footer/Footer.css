@@ -20,7 +20,7 @@
   gap: 25px;
   margin: 0 auto;
 }
-.Footer-myself__icons div{
+.Footer-myself__icons div a{
   width: 40px;
   font-size: 4rem;
   color: var(--black);

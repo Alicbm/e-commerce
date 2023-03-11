@@ -17,6 +17,7 @@
   display: grid;
   place-content: center;
   margin-top: 10px;
+  cursor: pointer;
 }
 .Categories-container__item-image{
   width: 110px;
@@ -27,10 +28,9 @@
   border-radius: 50%;
 }
 .Categories-container__item-image img{
-  /* width: 45px; */
   min-width: 50px;
-  max-width: 70px;
-  max-height: 95px;
+  max-width: 95px;
+  max-height: 100px;
 }
 .Categories-container__item-name{
   font-size: 1.5rem;

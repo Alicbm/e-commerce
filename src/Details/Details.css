@@ -11,14 +11,15 @@
 .Details h1{
   font-size: 2.2rem;
   font-family: var(--font-title);
+  color: var(--green);
   margin-bottom: 10px;
 }
 .Details p{
   font-size: 1.2rem;
-  line-height: 2rem;
+  line-height: 2.2rem;
 }
 @media(min-width: 1000px){
   .Details{
-    width: 50%;
+    width: 70%;
   }
 }

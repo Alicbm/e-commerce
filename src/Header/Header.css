@@ -47,6 +47,21 @@
 .Header-logo__input{
   display: none;
 }
+.Header-logo__input span{
+  cursor: pointer;
+}
+.Header-logo__input span:hover{
+  color: var(--white);
+  background-color: var(--green);
+}
+.Header-logo__input input{
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--black);
+  outline: none;
+  padding-left: 10px;
+}
+
 .Header-cart{
   display: flex;
   justify-content: center;

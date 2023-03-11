@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  cursor: pointer;
 }
 .SmallCategory-title p{
   font-size: 1.8rem;
@@ -11,7 +12,6 @@
 .SmallCategory-title span{
   font-size: 3rem;
   color: var(--green);
-  cursor: pointer;
 }
 .SmallCategory-checkbox{
   display: none;

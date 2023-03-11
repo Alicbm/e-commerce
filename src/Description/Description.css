@@ -16,7 +16,7 @@
 }
 .Description-image img{
   max-width: 90%;
-  max-height: 260px;
+  max-height: 200px;
 }
 .Description-info{
   text-align: center;
@@ -39,9 +39,9 @@
 }
 .Description-info__description{
   width: 90%;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--dark-gray);
-  line-height: 1.8rem;
+  line-height: 2rem;
   margin: 10px auto 0 auto;
 }
 .Description-info__buy{
@@ -55,6 +55,9 @@
   border-radius: 6px;
   margin-top: 10px;
 }
+.Description-info__buy:hover{
+  background-color: #7db83e;
+}
 .Description-info__add{
   width: 100%;
   height: 40px;
@@ -64,6 +67,10 @@
   border: 2px solid var(--green);
   border-radius: 6px;
   margin-top: 10px;
+}
+.Description-info__add:hover{
+  color: var(--white);
+  background-color: var(--green);
 }
 .Description-info__heart{
   position: absolute;
@@ -96,13 +103,24 @@
     display: grid;
     grid-template-columns: 45% 55%;
   }
+  .Description-image img{
+    min-width: 150px;
+    max-width: 90%;
+    max-height: 260px;
+  }
   .Description-info{
     max-width: 400px;
   }
   .Description-info__buttons{
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+  }
+  .Description-info__buttons button{
+    width: 100%;
+    max-width: 350px;
+    cursor: pointer;
   }
   .Description-info__buy, .Description-info__add{
     width: 45%;

@@ -27,6 +27,9 @@
   background-color: var(--white);
   border-radius: 50%;
 }
+.Categories-container__item-image:hover{
+  background-color: #dbdbdb;
+}
 .Categories-container__item-image img{
   min-width: 50px;
   max-width: 95px;
@@ -37,6 +40,7 @@
   font-family: var(--font-title);
   text-align: center;
   color: var(--black);
+  margin-top: 5px;
 }
 @media(min-width:600px){
   .Categories{

@@ -31,7 +31,7 @@
   position: relative;
   background-color: var(--white);
   padding: 15px;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 10px 5px;
 }
 .ReletedProducts-container__products-img{
   display: grid;
@@ -80,7 +80,7 @@
   cursor: pointer;
 }
 .ReletedProducts-container__products-cart:hover{
-  background-color: #77bb2e;
+  background-color: #7db83e;
   cursor: pointer;
 }
 .ReletedProducts-container__products-heart{

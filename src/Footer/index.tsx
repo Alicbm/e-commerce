@@ -29,7 +29,7 @@ export const Footer = () => {
             </a>
           </div>
           <div>
-            <a 
+            <a
               href="https://www.linkedin.com/in/alic-barandica/"
               target="_blank"
               rel="noopener noreferrer"
@@ -41,7 +41,13 @@ export const Footer = () => {
         <button>Contact me</button>
       </div>
       <div className="Footer-logo">
-        <img src={logo} alt="Logo" />
+        <a
+          href="https://alicbm.github.io/alicbarandica.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={logo} alt="Logo" />
+        </a>
         <p>All rights reserved</p>
       </div>
     </div>

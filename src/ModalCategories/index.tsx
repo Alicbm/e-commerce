@@ -4,14 +4,14 @@ import { ImHome } from "react-icons/im";
 import { SmallCategory } from "../SmallCategory";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import {
-  modal as setModal,
   category1 as setCat1,
   // category2 as setCat2,
   // category3 as setCat3,
   // category4 as setCat4,
   // category5 as setCat5,
   // category6 as setCat6,
-} from "../features/mainSlices";
+} from "../features/categoriesSlices";
+import {modal as setModal} from '../features/mainSlices'
 import "./ModalCategories.css";
 import { ArrayCategory } from "../types";
 import { useNavigate } from "react-router-dom";
@@ -56,8 +56,8 @@ export const ModalCategories = () => {
         <CgClose />
       </span>
       <div className="ModalCategories-container">
-        <div 
-          onClick={() => navigate('/')}
+        <div
+          onClick={() => navigate("/")}
           className="ModalCategories-container__home"
         >
           <p>Home</p>

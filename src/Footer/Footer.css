@@ -25,6 +25,9 @@
   font-size: 4rem;
   color: var(--black);
 }
+.Footer-myself__icons div a:hover{
+  color: var(--green);
+}
 .Footer-myself button{
   width: 120px;
   height: 40px;
@@ -33,6 +36,10 @@
   color: var(--white);
   border: none;
   border-radius: 20px;
+  cursor: pointer;
+}
+.Footer-myself button:hover{
+  background-color: #7db83e;
 }
 .Footer-logo{
   display: flex;

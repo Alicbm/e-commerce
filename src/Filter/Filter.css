@@ -20,6 +20,12 @@
   color: var(--green);
   margin-right: 10px;
 }
+.Filter-sort span:hover, .Filter-filter span:hover{
+  color: #7db83e;
+}
+.Filter-sort p:hover, .Filter-filter p:hover{
+  color: #dadada;
+}
 .Filter-sort{
   border-right: 1px solid var(--gray);
 }

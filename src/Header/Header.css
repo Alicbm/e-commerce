@@ -47,6 +47,9 @@
 .Header-logo__input{
   display: none;
 }
+.Header-logo__input:hover{
+  border: 1px solid var(--green);
+}
 .Header-logo__input span{
   cursor: pointer;
 }

@@ -7,17 +7,13 @@ import {
   nameCategory as setNameCategory,
   refreshValues as setRefresh,
 } from "../features/mainSlices";
-import { AnyAction } from "redux";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { ArrayCategory, ArrayProducts } from "../types";
 import "./SmallCategory.css";
 
-export const SmallCategory = (prop: {
-  state: boolean;
-  setState: (res: boolean) => AnyAction;
-  category: ArrayCategory;
-}) => {
-  
+export const SmallCategory = (prop: { category: ArrayCategory }) => {
+  const [select, setSelect] = React.useState<boolean>(false);
+
   const { refreshValues } = useAppSelector((state) => state.mainReducer);
   const navigate = useNavigate();
 
@@ -30,7 +26,8 @@ export const SmallCategory = (prop: {
   };
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(prop.setState(event.target.checked));
+    const value: boolean = event.target.checked;
+    setSelect(value);
   };
 
   const listTypeProducts = (category: ArrayProducts[]) => {
@@ -72,19 +69,15 @@ export const SmallCategory = (prop: {
         <input
           onChange={handleCheckboxChange}
           type="checkbox"
-          checked={prop.state}
+          checked={select}
           className="SmallCategory-checkbox"
         />
         <p onClick={handleCategories}>{prop.category.name}</p>
-        <span>
-          {!prop.state ? <MdKeyboardArrowDown /> : <MdKeyboardArrowUp />}
-        </span>
+        <span>{!select ? <MdKeyboardArrowDown /> : <MdKeyboardArrowUp />}</span>
       </label>
       <ul
         className={
-          !prop.state
-            ? `SmallCategory-list ${prop.state}-show`
-            : "SmallCategory"
+          !select ? `SmallCategory-list ${select}-show` : "SmallCategory"
         }
       >
         {dataFinal.map((product: string) => (

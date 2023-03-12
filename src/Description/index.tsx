@@ -10,7 +10,6 @@ export const Description = () => {
   const { productSelected, mainUrl } = useAppSelector(state => state.mainReducer)
   const finalUrl = mainUrl + "/products";
   
-
   const handleChangeFavorite = async (
     id: number,
     favResponse: boolean

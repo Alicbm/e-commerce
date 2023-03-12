@@ -32,7 +32,7 @@ export const Recommendations = (prop: {title: string, data: ArrayProducts[]}) =>
   };
 
   const sendData = (product: ArrayProducts) => {
-    dispatch(setProduct(product))
+    dispatch(setProduct(product))    
     navigate('/description')
   }
 

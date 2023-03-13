@@ -1,0 +1,123 @@
+.CartProducts{
+  width: 100%;
+}
+.CartProducts-title{
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 2px;
+  padding: 0 20px;
+  margin-top: 10px;
+}
+.CartProducts-title p{
+  font-size: 2rem;
+  font-family: var(--font-title);
+}
+.CartProducts-title span{
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-content: center;
+  font-size: 1.5rem;
+  font-family: var(--font-title);
+  color: var(--white);
+  background-color: red;
+  border-radius: 50%;
+}
+.CartProducts-ad{
+  width: 100%;
+  height: 70px;
+  border-radius: 2px;
+  background-color: var(--black);
+  margin: 10px 0;
+}
+.CartProducts-product{
+  width: 100%;
+  height: 160px;
+  display: grid;
+  grid-template-areas: 
+    'img info'
+    'delete quanty' 
+  ;
+  grid-template-columns: 40% 60%;
+  /* grid-template-rows: 70% 40%; */
+  /* place-content: center; */
+  /* align-items: center; */
+  /* justify-items: center; */
+  column-gap: 20px;
+  row-gap: 5px;
+  background-color: var(--white);
+  border-radius: 2px;
+  padding: 15px 20px;
+}
+.CartProducts-product__img{
+  display: flex;
+  justify-content: center;
+}
+.CartProducts-product__img img{
+  grid-area: img;
+  max-width: 100px;
+  max-height: 80px;
+}
+.CartProducts-product .CartProducts-product__features{
+  grid-area: info;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+}
+.CartProducts-product__features-brand{
+  font-family: var(--font-text);
+  font-size: 1rem;
+  margin-bottom: 5px;
+}  
+.CartProducts-product__features-name{
+  margin-bottom: 5px;
+}
+.CartProducts-product__features-price strong{
+  color: var(--green); 
+  font-size: 1.6rem;
+  margin-left: 5px;
+}
+.CartProducts-product .CartProducts-product__delete{
+  grid-area: delete;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+}
+.CartProducts-product__delete p{
+  margin-right: 5px;
+}
+.CartProducts-product .CartProducts-product__add{
+  grid-area: quanty;
+}
+.CartProducts-product__add p{
+  font-size: 1.2rem;
+  text-align: left;
+  margin-bottom: 5px;
+}
+.CartProducts-product__add-buttons{
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid var(--gray);
+  border-radius: 1px;
+}
+.CartProducts-product__add-buttons button{
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-family: var(--font-title);
+  border: none;
+  padding: 5px 15px;
+}
+.CartProducts-product__add-buttons span{
+  width: 30%;
+  font-size: 1.5rem;
+  padding: 0 15px;
+}

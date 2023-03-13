@@ -34,7 +34,7 @@ export const SpecificProduct = () => {
       <ModalCategories />
       <Description />
       <Warning />
-      <ReletedProducts data={data}/>
+      <ReletedProducts data={data} title='Related Products'/>
       <WriteComments />
       <Comments />
     </div>

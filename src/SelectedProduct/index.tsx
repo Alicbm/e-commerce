@@ -23,9 +23,7 @@ export const SelectedProduct = () => {
 
       const data = json.find((category: ArrayProducts)  => category.name === nameCategory);      
       dispatch(setType(data.products))
-      dispatch(relevantProduct(data.products))
-      console.log(data);
-      
+      dispatch(relevantProduct(data.products))      
     };
 
     fetUrl();

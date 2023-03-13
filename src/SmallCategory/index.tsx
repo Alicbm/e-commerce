@@ -3,7 +3,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import {
-  typeProductSelected,
+  typeProductSelected as setType,
   nameCategory as setNameCategory,
   refreshValues as setRefresh,
 } from "../features/mainSlices";
@@ -14,13 +14,20 @@ import "./SmallCategory.css";
 export const SmallCategory = (prop: { category: ArrayCategory }) => {
   const [select, setSelect] = React.useState<boolean>(true);
 
-  const { refreshValues } = useAppSelector((state) => state.mainReducer);
+  const { refreshValues, relevantProduct, typeProductSelected } = useAppSelector((state) => state.mainReducer);
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
+
   const dataFinal: string[] = [];
+  const data: ArrayProducts[] = [...relevantProduct];
 
   const handleCategories = () => {
+    navigate("/products");
+    dispatch(setNameCategory(prop.category.name));
+  };
+
+  const handleSpecificCategories = () => {
     navigate("/products");
     dispatch(setNameCategory(prop.category.name));
   };
@@ -44,22 +51,31 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
 
   const handleCheckHeart = () => {
     const inputElements = Array.from(
-      document.querySelectorAll("input")
+      document.querySelectorAll('input[type="checkbox"].categories-checkbox')
     ) as HTMLInputElement[];
 
     let newArray: ArrayProducts[] = [];
+    const verifyValues = inputElements.every(
+      (type: HTMLInputElement) => type.checked === false
+    );
 
-    inputElements.forEach((type: HTMLInputElement) => {
-      if (type.checked) {
-        prop.category.products.filter((item: ArrayProducts) => {
-          if (item.product === type.value) {
-            return newArray.push(item);
-          }
-        });
-      }
-    });
+    if (!verifyValues) {
+      inputElements.forEach((type: HTMLInputElement) => {
+        if (type.checked) {
+          prop.category.products.filter((item: ArrayProducts) => {
+            if (item.product === type.value) {
+              return newArray.push(item);
+            }
+          });
+        }
+      });
+    } else if (!!verifyValues) {
+      newArray = [...data];
+    }
 
-    dispatch(typeProductSelected([...newArray]));
+    console.log(typeProductSelected);
+    
+    dispatch(setType([...newArray]));
     dispatch(setRefresh(!refreshValues));
   };
 
@@ -82,7 +98,7 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
       >
         {dataFinal.map((product: string) => (
           <li
-            onClick={handleCategories}
+            onClick={handleSpecificCategories}
             className="SmallCategory-list__item"
             key={product}
           >

@@ -7,7 +7,7 @@ import { ArrayProducts } from "../types";
 import { productSelected as setProduct } from "../features/mainSlices";
 import "./ReletedProducts.css";
 
-export const ReletedProducts = (prop: { data: ArrayProducts[] }) => {
+export const ReletedProducts = (prop: { data: ArrayProducts[], title: string }) => {
   const { mainUrl } = useAppSelector(state => state.mainReducer)
   const finalUrl = mainUrl + "/products";
 
@@ -38,7 +38,7 @@ export const ReletedProducts = (prop: { data: ArrayProducts[] }) => {
 
   return (
     <div className="ReletedProducts">
-      <h2 className="ReletedProducts-title">Related Products</h2>
+      <h2 className="ReletedProducts-title">{prop.title}</h2>
       <div className="ReletedProducts-container">
         {prop.data.map((product) => (
           <div className="ReletedProducts-container__products" key={product.id}>

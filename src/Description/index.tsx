@@ -10,6 +10,8 @@ export const Description = () => {
   const { productSelected, mainUrl } = useAppSelector(state => state.mainReducer)
   const finalUrl = mainUrl + "/products";
   
+  const dues: string = (productSelected.price / 12).toFixed();
+
   const handleChangeFavorite = async (
     id: number,
     favResponse: boolean
@@ -70,7 +72,7 @@ export const Description = () => {
           <span>
             <FaHandHoldingUsd />
           </span>
-          <p>Up to 48 fees: 48 USD</p>
+          <p>Up to 12 fees: {dues} USD</p>
         </div>
         <div className="Description-details__product">
           <span>

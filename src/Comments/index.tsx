@@ -11,7 +11,6 @@ export const Comments = () => {
   const { mainUrl } = useAppSelector((state) => state.mainReducer);
   const finalUrl = mainUrl + "/products";
 
-
   React.useEffect(() => {
     const id = productSelected.id;
 
@@ -23,13 +22,14 @@ export const Comments = () => {
     };
 
     fetUrl();
-  }, [finalUrl, productSelected]);   
+  }, [finalUrl, productSelected]);
+
 
   return (
     <div className='Comments'>
       {
         url?.feedback.map((comment: ArrayFeedback) => (
-          <div className='Comments-container'>
+          <div className='Comments-container' key={comment.id}>
             <div className='Comments-container__head'>
               <h4>{comment.name}</h4>
               <div>

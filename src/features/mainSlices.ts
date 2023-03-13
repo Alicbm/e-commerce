@@ -31,12 +31,6 @@ const initialState = {
   relevantProduct: [],
   refreshValues: false,
   refreshValuesTwo: false,
-  category1: true,
-  category2: false,
-  category3: false,
-  category4: false,
-  category5: false,
-  category6: false,
 };
 
 export const mainSlice = createSlice({

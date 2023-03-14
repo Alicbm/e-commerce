@@ -9,8 +9,8 @@
   justify-content: center;
   font-size: 2rem;
   font-family: var(--font-title);
+  text-align: center;
   background-color: var(--white);
-  /* padding-left: 20px; */
   margin: 10px 0 5px 0;
 }
 .CartPayment-selected{
@@ -111,4 +111,13 @@
 }
 .CartPayment-payment span img{
   width: 30px;
+}
+@media(min-width: 700px){
+  .CartPayment-payment{
+    justify-content: space-evenly;
+  }
+  .CartPayment-title{
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
 }

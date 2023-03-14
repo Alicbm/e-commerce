@@ -2,3 +2,22 @@
   width: 90%;
   margin: 0 auto;
 }
+@media(min-width: 700px){
+  .Cart-container{
+    max-width: 700px;
+  }
+}
+@media(min-width: 1000px){
+  .Cart{
+    width: calc(100% - 230px);
+  }
+  .Cart-container{
+    min-width: 90%;
+    max-width: 90%;
+  }
+  .Cart-container__content{
+    display: grid;
+    grid-template-columns: 65% auto;
+    column-gap: 20px;
+  }
+}

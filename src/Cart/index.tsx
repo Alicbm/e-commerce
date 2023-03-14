@@ -35,8 +35,10 @@ export const Cart = () => {
     <div className='Cart'>
       <ModalCategories />
       <div className="Cart-container">
-        <CartProducts />
-        <CartPayment />
+        <div className="Cart-container__content">
+          <CartProducts />
+          <CartPayment />
+        </div>
         <ReletedProducts data={data} title='Might interest you'/>
       </div>
     </div>

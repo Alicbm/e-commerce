@@ -2,6 +2,7 @@ import React from "react";
 import { FaTrashAlt } from 'react-icons/fa'
 import { BiPlusMedical } from 'react-icons/bi'
 import { FaMinus } from 'react-icons/fa'
+import ad from '../icons/avengers_ad.png'
 import "./CartProducts.css";
 
 export const CartProducts = () => {
@@ -11,7 +12,9 @@ export const CartProducts = () => {
         <p>Shoping Cart</p>
         <span>2</span>
       </div>
-      <div className="CartProducts-ad"></div>
+      <div className="CartProducts-ad">
+        <img src={ad} alt="Ad" />
+      </div>
       <div className="CartProducts-product">
         <div className="CartProducts-product__img">
           <img src="https://raw.githubusercontent.com/Alicbm/store-image/master/tecnology/cell-2.png" alt="" />

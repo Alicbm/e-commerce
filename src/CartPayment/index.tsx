@@ -1,4 +1,12 @@
 import React from "react";
+import { IoLocationSharp } from 'react-icons/io5'
+import { FaTruck } from 'react-icons/fa'
+import dinersClub from '../icons/diners-club.png'
+import paypal from '../icons/paypal.png'
+import creditCard from '../icons/credit-card.png'
+import visa from '../icons/visa.png'
+import americanExpress from '../icons/american-express.png'
+import money from '../icons/dinero.png'
 import "./CartPayment.css";
 
 export const CartPayment = () => {
@@ -18,22 +26,36 @@ export const CartPayment = () => {
         <h3>Total:</h3>
         <p>8.700.000</p>
       </div>
+      <div className="CartPayment-button">
+        <button>Continue</button>
+      </div>
       <div className="CartPayment-location">
-        <span></span>
+        <span><IoLocationSharp /></span>
         <p>The price is the same all over the world</p>
       </div>
       <div className="CartPayment-shipping">
-        <span></span>
+        <span><FaTruck /></span>
         <p>Free Shipping</p>
       </div>
       <div className="CartPayment-payment">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span>
+          <img src={dinersClub} alt="dinersClub" />
+        </span>
+        <span>
+          <img src={paypal} alt="paypal" />
+        </span>
+        <span>
+          <img src={creditCard} alt="creditCard" />
+        </span>
+        <span>
+          <img src={visa} alt="visa" />
+        </span>
+        <span>
+          <img src={americanExpress} alt="americanExpress" />
+        </span>
+        <span>
+          <img src={money} alt="money" />
+        </span>
       </div>
     </div>
   );

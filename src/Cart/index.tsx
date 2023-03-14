@@ -21,7 +21,7 @@ export const Cart = () => {
       let dataSelected = []
 
       for(let i = 0; i < 10; i++){
-        const random = Math.floor(Math.random() * json.length) + 1;
+        const random = Math.floor(Math.random() * json.length - 1) + 1;
         dataSelected.push(json[random])
       }
 

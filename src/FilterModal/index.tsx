@@ -8,7 +8,7 @@ import { ArrayProducts } from "../types";
 import "./FilterModal.css";
 
 export const FilterModal = () => {
-  const { filterModal, relevantProduct, refreshValuesTwo, typeProductSelected, refreshValues } = useAppSelector(
+  const { filterModal, relevantProduct, refreshValuesTwo, typeProductSelected } = useAppSelector(
     (state) => state.mainReducer
   );
 

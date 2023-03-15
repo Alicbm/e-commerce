@@ -28,7 +28,8 @@
   border-radius: 50%;
 }
 .Categories-container__item-image:hover{
-  background-color: #dbdbdb;
+  /* background-color: #dbdbdb; */
+  box-shadow: 0px 1px 8px #979797;
 }
 .Categories-container__item-image img{
   min-width: 50px;

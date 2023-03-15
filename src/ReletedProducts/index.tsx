@@ -4,11 +4,11 @@ import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { ArrayProducts } from "../types";
-import { productSelected as setProduct } from "../features/mainSlices";
+import { productSelected as setProduct, cartProducts as setCart } from "../features/mainSlices";
 import "./ReletedProducts.css";
 
 export const ReletedProducts = (prop: { data: ArrayProducts[], title: string }) => {
-  const { mainUrl } = useAppSelector(state => state.mainReducer)
+  const { mainUrl, cartProducts } = useAppSelector(state => state.mainReducer)
   const finalUrl = mainUrl + "/products";
 
   const dispatch = useAppDispatch();
@@ -35,6 +35,18 @@ export const ReletedProducts = (prop: { data: ArrayProducts[], title: string }) 
       body: JSON.stringify(data),
     });
   };
+
+  const handleCartProducts = (product: ArrayProducts) => {
+    let values: ArrayProducts[] = []
+    
+    prop.data.forEach((item) => {
+      if(item.id === product.id){
+        values.push(...cartProducts, item)
+      }
+    })
+
+    dispatch(setCart([...values]))
+  }
 
   return (
     <div className="ReletedProducts">
@@ -63,7 +75,10 @@ export const ReletedProducts = (prop: { data: ArrayProducts[], title: string }) 
                 {product.description.split(" ").splice(0, 10).join(" ")}...
               </p>
             </div>
-            <div className="ReletedProducts-container__products-cart">
+            <div 
+              onClick={() => handleCartProducts(product)}
+              className="ReletedProducts-container__products-cart"
+            >
               <BsFillCartPlusFill />
             </div>
             <div className="ReletedProducts-container__products-heart">

@@ -6,10 +6,13 @@ import { BsFillCartPlusFill } from 'react-icons/bs'
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { modal as setModal, headerSearch as setHeader } from '../features/mainSlices'
 import './Header.css'
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
-  const { headerSearch } = useAppSelector(state => state.mainReducer)
+  const { headerSearch, cartProducts } = useAppSelector(state => state.mainReducer)
   const dispatch = useAppDispatch();
+
+  const navigate = useNavigate()
 
   return (
     <header className={!headerSearch ? "Header" : "Header header-unshow"}>
@@ -32,8 +35,11 @@ export const Header = () => {
           <input type="text" placeholder="Search" />
         </div>
       </div>
-      <div className="Header-cart icon-green">
-        <span>0</span>
+      <div 
+        className="Header-cart icon-green"
+        onClick={() => navigate('/cart')}  
+      >
+        <span>{cartProducts.length}</span>
         <BsFillCartPlusFill />
       </div>
     </header>

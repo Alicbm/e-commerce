@@ -14,7 +14,7 @@ import "./SmallCategory.css";
 export const SmallCategory = (prop: { category: ArrayCategory }) => {
   const [select, setSelect] = React.useState<boolean>(true);
 
-  const { refreshValues, relevantProduct, typeProductSelected } = useAppSelector((state) => state.mainReducer);
+  const { refreshValues, relevantProduct } = useAppSelector((state) => state.mainReducer);
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -72,8 +72,6 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
     } else if (!!verifyValues) {
       newArray = [...data];
     }
-
-    console.log(typeProductSelected);
     
     dispatch(setType([...newArray]));
     dispatch(setRefresh(!refreshValues));

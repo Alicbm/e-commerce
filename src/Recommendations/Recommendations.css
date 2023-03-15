@@ -116,8 +116,7 @@
     cursor: pointer;
   }
   .Recommendations-container__products:hover{
-    background-color: #dfdfdf;
-    border: 1px solid var(--green);
+    box-shadow: 0px 1px 8px #979797;
   }
 }
 @media(min-width: 1150px){

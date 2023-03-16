@@ -29,7 +29,7 @@ export const Cart = () => {
     }
 
     fetUrl();
-  }, [finalUrl]);
+  }, [data.length, finalUrl]);
 
   return (
     <div className='Cart'>

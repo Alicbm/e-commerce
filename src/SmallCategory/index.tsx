@@ -13,8 +13,9 @@ import "./SmallCategory.css";
 
 export const SmallCategory = (prop: { category: ArrayCategory }) => {
   const [select, setSelect] = React.useState<boolean>(true);
+  const [active, setActive] = React.useState<boolean>(true);
 
-  const { refreshValues, relevantProduct } = useAppSelector((state) => state.mainReducer);
+  const { refreshValues, relevantProduct, nameCategory } = useAppSelector((state) => state.mainReducer);
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -23,11 +24,6 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
   const data: ArrayProducts[] = [...relevantProduct];
 
   const handleCategories = () => {
-    navigate("/products");
-    dispatch(setNameCategory(prop.category.name));
-  };
-
-  const handleSpecificCategories = () => {
     navigate("/products");
     dispatch(setNameCategory(prop.category.name));
   };
@@ -46,7 +42,8 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
       }
       return findProduct;
     });
-  };
+  }
+
   listTypeProducts(prop.category.products);
 
   const handleCheckHeart = () => {
@@ -57,9 +54,9 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
     let newArray: ArrayProducts[] = [];
     const verifyValues = inputElements.every(
       (type: HTMLInputElement) => type.checked === false
-    );
+      );
 
-    if (!verifyValues) {
+    if (verifyValues !== true) {
       inputElements.forEach((type: HTMLInputElement) => {
         if (type.checked) {
           prop.category.products.filter((item: ArrayProducts) => {
@@ -67,15 +64,24 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
               return newArray.push(item);
             }
           });
-        }
+        }        
       });
-    } else if (!!verifyValues) {
+    } else if (verifyValues === true) {
       newArray = [...data];
     }
     
     dispatch(setType([...newArray]));
-    dispatch(setRefresh(!refreshValues));
+    dispatch(setRefresh(!refreshValues));    
   };
+  
+
+  React.useEffect(() => {
+    if(nameCategory === prop.category.name){
+      setActive(false)
+    }else{
+      setActive(true)
+    }
+  }, [active, nameCategory, prop.category.name])
 
   return (
     <div className="SmallCategory" key={prop.category.id}>
@@ -96,7 +102,7 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
       >
         {dataFinal.map((product: string) => (
           <li
-            onClick={handleSpecificCategories}
+            onClick={handleCategories}
             className="SmallCategory-list__item"
             key={product}
           >
@@ -105,6 +111,7 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
                 onChange={handleCheckHeart}
                 type="checkbox"
                 value={product}
+                disabled={active}
                 className="categories-checkbox"
               />
               {product}

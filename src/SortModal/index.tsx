@@ -45,7 +45,7 @@ export const SortModal = () => {
       <div className="SortModal-container">
         <div
           onClick={() => setOption("relevant")}
-          className={option === "relevant" || 'initial' ? "sort-select" : ""}
+          className={option === "relevant" ? "sort-select" : ""}
         >
           <p>More relevant</p>
         </div>

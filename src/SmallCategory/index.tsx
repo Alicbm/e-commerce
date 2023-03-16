@@ -56,7 +56,7 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
       (type: HTMLInputElement) => type.checked === false
       );
 
-    if (verifyValues !== true) {
+    if (!verifyValues) {  
       inputElements.forEach((type: HTMLInputElement) => {
         if (type.checked) {
           prop.category.products.filter((item: ArrayProducts) => {
@@ -66,7 +66,7 @@ export const SmallCategory = (prop: { category: ArrayCategory }) => {
           });
         }        
       });
-    } else if (verifyValues === true) {
+    } else if (!!verifyValues) {
       newArray = [...data];
     }
     

@@ -21,7 +21,7 @@ export const SelectedProduct = () => {
       const res = await fetch(finalUrl);
       const json = await res.json();
 
-      const data = await json.find((category: ArrayProducts)  => category.name === nameCategory);      
+      const data = json.find((category: ArrayProducts)  => category.name === nameCategory);      
       dispatch(setType(data.products))
       dispatch(relevantProduct(data.products))      
     };

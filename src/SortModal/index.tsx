@@ -9,7 +9,7 @@ import "./SortModal.css";
 export const SortModal = () => {
   const { sortModal, typeProductSelected, relevantProduct, refreshValues, refreshValuesTwo } =
     useAppSelector((state) => state.mainReducer);
-  const [option, setOption] = React.useState("initial");
+  const [option, setOption] = React.useState("relevant");
 
   const dispatch = useAppDispatch();
 

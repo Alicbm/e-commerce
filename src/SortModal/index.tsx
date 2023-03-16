@@ -9,7 +9,7 @@ import "./SortModal.css";
 export const SortModal = () => {
   const { sortModal, typeProductSelected, relevantProduct, refreshValues, refreshValuesTwo } =
     useAppSelector((state) => state.mainReducer);
-  const [option, setOption] = React.useState("relevant");
+  const [option, setOption] = React.useState("initial");
 
   const dispatch = useAppDispatch();
 
@@ -45,7 +45,7 @@ export const SortModal = () => {
       <div className="SortModal-container">
         <div
           onClick={() => setOption("relevant")}
-          className={option === "relevant" ? "sort-select" : ""}
+          className={option === "relevant" && 'initial' ? "sort-select" : ""}
         >
           <p>More relevant</p>
         </div>

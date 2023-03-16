@@ -8,13 +8,15 @@ import { ArrayProducts } from "../types";
 import "./FilterModal.css";
 
 export const FilterModal = () => {
-  const { filterModal, relevantProduct, refreshValuesTwo, typeProductSelected } = useAppSelector(
+  const { filterModal, relevantProduct, refreshValuesTwo } = useAppSelector(
     (state) => state.mainReducer
   );
 
   const dispatch = useAppDispatch();
+
   const dataFilter: string[] = [];
   const data: ArrayProducts[] = [...relevantProduct];
+  let filterBrands: ArrayProducts[] = [];
 
   const brands = () => {
     relevantProduct.forEach((item: ArrayProducts) => {
@@ -35,7 +37,6 @@ export const FilterModal = () => {
       )
     ) as HTMLInputElement[];
 
-    let res: ArrayProducts[] = [];
     const verifyValues = values.every(
       (type: HTMLInputElement) => type.checked === false
     );
@@ -44,29 +45,29 @@ export const FilterModal = () => {
         if (type.checked) {
           data.filter((item: ArrayProducts) => {
             if (type.value === "small_value" && item.price < 200) {
-              res.push(item);
+              filterBrands.push(item);
             } else if (
               type.value === "medium_value" &&
               item.price >= 200 &&
               item.price < 500
             ) {
-              res.push(item);
+              filterBrands.push(item);
             } else if (type.value === "big_value" && item.price >= 500) {
-              res.push(item);
+              filterBrands.push(item);
             }
           });
         }
       });
     } else if (!!verifyValues) {
-      res = [...data];
+      filterBrands = [...data];
     }
 
-    dispatch(setType(res));
-    console.log('el pepe');
-    
+    dispatch(setType(filterBrands));    
   };
 
   const handleSelectBranch = () => {
+    handleRangePrices()
+
     const inputElements = Array.from(
       document.querySelectorAll('input[type="checkbox"].brand-checkbox')
     ) as HTMLInputElement[];
@@ -79,7 +80,7 @@ export const FilterModal = () => {
     if(!verifyValues){
       inputElements.forEach((type: HTMLInputElement) => {
         if (type.checked) {
-          typeProductSelected.filter((item: ArrayProducts) => {
+          filterBrands.filter((item: ArrayProducts) => {
             if (type.value === item.brand) {
               brandSelected.push(item);
             }
@@ -87,7 +88,7 @@ export const FilterModal = () => {
         }
       });
     }else if (!!verifyValues) {
-      brandSelected = [...data];
+      brandSelected = [...filterBrands];
     }
 
     dispatch(setType(brandSelected));

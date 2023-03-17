@@ -100,7 +100,9 @@
 .ReletedProducts-container__products-heart label input:checked + span{
   color: rgb(252, 64, 64);
 }
-.ReletedProducts-container__products-heart label input:checked + .favorite-selected{
+.ReletedProducts-container__products-heart label input:checked + .favorite-selected,
+.ReletedProducts-container__products-heart label input:checked + .heart-selected,
+.ReletedProducts-container__products-heart label input:checked + .Description-selected{
   color: #a0a0a0;
 }
 .favorite-selected{

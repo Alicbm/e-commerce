@@ -88,7 +88,9 @@
 .Description-info__heart label input:checked + span{
   color: rgb(252, 64, 64);
 }
-.Description-info__heart label input:checked + .favorite-selected{
+.Description-info__heart label input:checked + .heart-selected,
+.Description-info__heart label input:checked + .favorite-selected,
+.Description-info__heart label input:checked + .Description-selected{
   color: #a0a0a0;
 }
 .Description-selected{

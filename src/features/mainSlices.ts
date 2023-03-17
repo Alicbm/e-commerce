@@ -32,6 +32,7 @@ const initialState = {
   refreshValues: false,
   refreshValuesTwo: false,
   cartProducts: [],
+  comments: [],
 };
 
 export const mainSlice = createSlice({
@@ -80,6 +81,9 @@ export const mainSlice = createSlice({
     cartProducts: (state, action) => {
       state.cartProducts = action.payload
     },
+    comments: (state, action) => {
+      state.comments = action.payload
+    } 
   },
 });
 
@@ -95,6 +99,7 @@ export const {
   relevantProduct,
   refreshValues,
   refreshValuesTwo,
-  cartProducts
+  cartProducts,
+  comments
 } = mainSlice.actions
 export default mainSlice.reducer;

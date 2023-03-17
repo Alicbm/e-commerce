@@ -7,7 +7,7 @@
   width: 100%;
   min-height: 100px;
   background-color: var(--white);
-  padding: 10px;
+  padding: 10px 20px;
   margin-bottom: 5px;
 }
 .Comments-container__head h4{
@@ -18,9 +18,13 @@
 .Comments-container__head div{
   margin-top: 5px;
 }
-.Comments-container__head div span{
+.star-gray{
   font-size: 1.5rem;
-  color: yellow;
+  color: var(--gray)
+}
+.star-green{
+  font-size: 1.5rem;
+  color: var(--green)
 }
 .Comments-container p{
   font-size: 1.4rem;

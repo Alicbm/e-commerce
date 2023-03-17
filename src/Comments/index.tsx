@@ -5,7 +5,7 @@ import { ArrayFeedback, ArrayProducts } from '../types'
 import './Comments.css'
 
 export const Comments = () => {
-  const { productSelected } = useAppSelector((state) => state.mainReducer);
+  const { productSelected, comments } = useAppSelector((state) => state.mainReducer);
   const [url, setUrl] = React.useState<ArrayProducts>();
 
   const { mainUrl } = useAppSelector((state) => state.mainReducer);
@@ -22,28 +22,47 @@ export const Comments = () => {
     };
 
     fetUrl();
-  }, [finalUrl, productSelected]);
-
+  }, [finalUrl, productSelected, comments]);
 
   return (
-    <div className='Comments'>
-      {
-        url?.feedback.map((comment: ArrayFeedback) => (
-          <div className='Comments-container' key={comment.id}>
-            <div className='Comments-container__head'>
-              <h4>{comment.name}</h4>
-              <div>
-                <span><AiFillStar /></span>
-                <span><AiFillStar /></span>
-                <span><AiFillStar /></span>
-                <span><AiFillStar /></span>
-                <span><AiFillStar /></span>
-              </div>
+    <div className="Comments">
+      {url?.feedback.map((comment: ArrayFeedback) => (
+        <div className="Comments-container" key={comment.id}>
+          <div className="Comments-container__head">
+            <h4>{comment.name}</h4>
+            <div>
+              {comment.bad && (
+                <span>
+                  <AiFillStar className='star-gray'/>
+                  <AiFillStar className='star-gray'/>
+                  <AiFillStar className='star-gray'/>
+                  <AiFillStar className='star-gray'/>
+                  <AiFillStar className='star-green'/>
+                </span>
+              )}
+              {comment.regular && (
+                <span>
+                  <AiFillStar className='star-gray'/>
+                  <AiFillStar className='star-gray'/>
+                  <AiFillStar className='star-green'/>
+                  <AiFillStar className='star-green'/>
+                  <AiFillStar className='star-green'/>
+                </span>
+              )}
+              {comment.good && (
+                <span>
+                  <AiFillStar className='star-green'/>
+                  <AiFillStar className='star-green'/>
+                  <AiFillStar className='star-green'/>
+                  <AiFillStar className='star-green'/>
+                  <AiFillStar className='star-green'/>
+                </span>
+              )}
             </div>
-            <p>{comment.description}</p>
           </div>
-        ))
-      }
+          <p>{comment.description}</p>
+        </div>
+      ))}
     </div>
-  )
+  );
 }

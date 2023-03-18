@@ -3,13 +3,17 @@ import { FaHandHoldingUsd } from "react-icons/fa";
 import { FaTruck } from "react-icons/fa";
 import { FaAward } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
-import { useAppSelector } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { cartProducts as setCart } from "../features/mainSlices";
+import { ArrayProducts } from "../types";
 import "./Description.css";
 
 export const Description = () => {
-  const { productSelected, mainUrl } = useAppSelector(state => state.mainReducer)
+  const { productSelected, mainUrl, cartProducts, relevantProduct } = useAppSelector(state => state.mainReducer)
+  const [selected, setSelected] = React.useState<ArrayProducts[]>([]);
   const finalUrl = mainUrl + "/products";
   
+  const dispatch = useAppDispatch();
   const dues: string = (productSelected.price / 12).toFixed();
 
   const handleChangeFavorite = async (
@@ -29,6 +33,30 @@ export const Description = () => {
     });
   };
 
+  React.useEffect(() => {
+    const fetUrl = async () => {
+      const res = await fetch(finalUrl);
+      const json = await res.json();
+
+      setSelected(json)
+    };
+
+    fetUrl();
+  }, []);
+
+  const handleCartProducts = () => {
+    let values: ArrayProducts[] = []
+    let copy: ArrayProducts[] = [...cartProducts]
+    
+    selected.forEach((item: ArrayProducts) => {
+      if(item.id === productSelected.id){
+        values.push(...copy, item)
+      }
+    })
+
+    dispatch(setCart([...values]))
+  }
+
   return (
     <div className="Description">
       <div className="Description-container">
@@ -46,7 +74,11 @@ export const Description = () => {
           </p>
           <div className="Description-info__buttons">
             <button className="Description-info__buy">Buy Product</button>
-            <button className="Description-info__add">Add to Cart</button>
+            <button 
+              onClick={handleCartProducts}
+              className="Description-info__add">
+              Add to Cart
+            </button>
           </div>
           <div className="Description-info__heart">
             <label>

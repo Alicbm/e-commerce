@@ -146,6 +146,9 @@
   .Description-info__buy, .Description-info__add{
     width: 45%;
   }
+  .Description-info__description{
+    font-size: 1.5rem;
+  }
   .Description-details{
     display: grid;
     grid-template-columns: repeat(3, 1fr);

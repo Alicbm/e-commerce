@@ -1,46 +1,50 @@
 import React from "react";
-import { IoLocationSharp } from 'react-icons/io5'
-import { FaTruck } from 'react-icons/fa'
-import dinersClub from '../icons/diners-club.png'
-import paypal from '../icons/paypal.png'
-import creditCard from '../icons/credit-card.png'
-import visa from '../icons/visa.png'
-import americanExpress from '../icons/american-express.png'
-import money from '../icons/dinero.png'
+import { IoLocationSharp } from "react-icons/io5";
+import { FaTruck } from "react-icons/fa";
+import dinersClub from "../icons/diners-club.png";
+import paypal from "../icons/paypal.png";
+import creditCard from "../icons/credit-card.png";
+import visa from "../icons/visa.png";
+import americanExpress from "../icons/american-express.png";
+import money from "../icons/dinero.png";
 import { useAppSelector } from "../store/hooks";
 import { ArrayProducts } from "../types";
 import "./CartPayment.css";
 
 export const CartPayment = () => {
-  const { cartProducts } = useAppSelector(state => state.mainReducer)
+  const { cartProducts } = useAppSelector((state) => state.mainReducer);
 
-  let newValue:ArrayProducts[] = []
+  let newValue: ArrayProducts[] = [];
   cartProducts.forEach((product: ArrayProducts) => {
-    let test = newValue.filter(item => item.id === product.id)
+    let test = newValue.filter((item) => item.id === product.id);
 
-    if(test.length <= 0){
-      newValue.push(product)
+    if (test.length <= 0) {
+      newValue.push(product);
     }
-  })
+  });
 
-  let value: number[] = []
+  let value: number[] = [];
   cartProducts.forEach((item: ArrayProducts) => {
-    value.push(item.price)
-  })
+    value.push(item.price);
+  });
 
-  const totalPrice = value.reduce((a:number, b:number) => a + b)
+  let totalPrice;
+
+  if (value.length > 0) {
+    totalPrice = value.reduce((a: number, b: number) => a + b);
+  }
 
   const findSameProduct = (id: number) => {
-    let values: ArrayProducts[] = []
+    let values: ArrayProducts[] = [];
 
     cartProducts.filter((product: ArrayProducts) => {
-      if(product.id === id){
-        values.push(product)
+      if (product.id === id) {
+        values.push(product);
       }
-    })
+    });
 
-    return values.length
-  }
+    return values.length;
+  };
 
   return (
     <div className="CartPayment">
@@ -53,8 +57,12 @@ export const CartPayment = () => {
             <p className="CartPayment-selected__container-name">
               {product.name.split(" ").splice(0, 5).join(" ")}...
             </p>
-            <p className="CartPayment-selected__container-units">{findSameProduct(product.id)} units</p>
-            <h3 className="CartPayment-selected__container-price">{product.price}</h3>
+            <p className="CartPayment-selected__container-units">
+              {findSameProduct(product.id)} units
+            </p>
+            <h3 className="CartPayment-selected__container-price">
+              {product.price}
+            </h3>
           </div>
         ))}
       </div>

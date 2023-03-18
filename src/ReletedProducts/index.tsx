@@ -38,10 +38,11 @@ export const ReletedProducts = (prop: { data: ArrayProducts[], title: string }) 
 
   const handleCartProducts = (product: ArrayProducts) => {
     let values: ArrayProducts[] = []
-    
+    let copy: ArrayProducts[] = [...cartProducts]
+
     prop.data.forEach((item) => {
       if(item.id === product.id){
-        values.push(...cartProducts, item)
+        values.push(...copy, item)
       }
     })
 

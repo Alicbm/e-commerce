@@ -67,7 +67,9 @@ export const CartProducts = () => {
       <div className="CartProducts-ad">
         <img src={ad} alt="Ad" />
       </div>
-      {newValue.map((product: ArrayProducts) => (
+      {
+        newValue.length > 0 ?
+          newValue.map((product: ArrayProducts) => (
         <div className="CartProducts-product" key={product.id}>
           <div className="CartProducts-product__img">
             <img
@@ -102,7 +104,12 @@ export const CartProducts = () => {
             </div>
           </div>
         </div>
-      ))}
+      ))
+        :
+        <div className="CartProducts-not-product">
+          <p>Empty shopping cart, add some products!</p>
+        </div>
+      }
     </div>
   );
 };

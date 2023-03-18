@@ -55,6 +55,20 @@
   padding: 15px 20px;
   margin-bottom: 5px;
 }
+.CartProducts-not-product{
+  width: 100%;
+  height: 160px;
+  display: grid;
+  place-content: center;
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: var(--green);
+  background-color: var(--white);
+  border-radius: 2px;
+  padding: 15px 20px;
+  margin-bottom: 5px;
+  border: 1px solid var(--green);
+}
 .CartProducts-product__img{
   display: flex;
   justify-content: center;

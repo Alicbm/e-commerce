@@ -6,11 +6,13 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { cartProducts as setCart } from "../features/mainSlices";
 import { ArrayProducts } from "../types";
 import ad from "../icons/avengers_ad.png";
+import { useNavigate } from "react-router-dom";
 import "./CartProducts.css";
 
 export const CartProducts = () => {
   const { cartProducts } = useAppSelector((state) => state.mainReducer);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
 
   let newValue:ArrayProducts[] = []
   cartProducts.forEach((product: ArrayProducts) => {
@@ -110,6 +112,7 @@ export const CartProducts = () => {
         :
         <div className="CartProducts-not-product">
           <p>Empty shopping cart, add some products!</p>
+          <button onClick={() => navigate('/products')}>See More</button>
         </div>
       }
     </div>

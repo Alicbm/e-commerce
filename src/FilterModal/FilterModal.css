@@ -58,6 +58,19 @@
   color: var(--green);
   margin-bottom: 15px;
 }
+.FilterModal-brands__list{
+  height: 60vh;
+  overflow-y: scroll;
+}
+.FilterModal-brands__list::-webkit-scrollbar {
+  width: 5px;
+  background: var(--black);
+}
+.FilterModal-brands__list::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 10px;
+  background-color: var(--gray);
+}
 .FilterModal-brands__list-item{
   display: flex;
   justify-content: flex-start;

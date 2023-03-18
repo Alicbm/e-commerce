@@ -29,6 +29,18 @@ export const SelectedProduct = () => {
     fetUrl();
   }, [dispatch, finalUrl, nameCategory]);  
 
+  React.useEffect(() => {
+    const fetchProducts = async () => {
+      const allProducts = await fetch(mainUrl + "/products")
+      const json = await allProducts.json()
+
+      dispatch(setType(json))
+      dispatch(relevantProduct(json))
+    }
+
+    fetchProducts()
+  }, [])
+  
   return (
     <div className="SelectedProduct">
       <FilterModal />

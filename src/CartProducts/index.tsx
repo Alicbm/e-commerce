@@ -46,16 +46,16 @@ export const CartProducts = () => {
   }
 
   const handleMenusProduct = (product: ArrayProducts) => {
-    let values: ArrayProducts[] = []
+    let values: ArrayProducts[] = [...cartProducts]
     const index = cartProducts.findIndex((item: ArrayProducts) => item.id === product.id)
+    
+    values.splice(index, 1)
+    dispatch(setCart([...values]))  
+  }
 
-    for (let i = 0; i < cartProducts.length; i++) {
-      if (i !== index) {
-        values.push(cartProducts[i])
-      }
-    }
-    dispatch(setCart([...values]))
-
+  const handleDeleteProducts = (product: ArrayProducts) => {
+    const values = cartProducts.filter((item: ArrayProducts) => item.id !== product.id)
+    dispatch(setCart(values))  
   }
 
   return (
@@ -85,7 +85,9 @@ export const CartProducts = () => {
               An unit: <strong>$ {product.price}</strong>
             </p>
           </div>
-          <div className="CartProducts-product__delete">
+          <div
+            onClick={() => handleDeleteProducts(product)}
+            className="CartProducts-product__delete">
             <p>Delete Item:</p>
             <span>
               <FaTrashAlt />

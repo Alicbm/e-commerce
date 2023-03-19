@@ -1,16 +1,21 @@
-import React from 'react'
-import { Filter } from '../Filter'
-import { FilterModal } from '../FilterModal'
-import { ModalCategories } from '../ModalCategories'
-import { Recommendations } from '../Recommendations'
-import { SortModal } from '../SortModal'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { ArrayProducts } from '../types'
-import { typeProductSelected as setType, relevantProduct } from '../features/mainSlices'
-import './SelectedProducts.css'
+import React from "react";
+import { Filter } from "../Filter";
+import { FilterModal } from "../FilterModal";
+import { ModalCategories } from "../ModalCategories";
+import { Recommendations } from "../Recommendations";
+import { SortModal } from "../SortModal";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { ArrayProducts } from "../types";
+import {
+  typeProductSelected as setType,
+  relevantProduct,
+} from "../features/mainSlices";
+import "./SelectedProducts.css";
 
 export const SelectedProduct = () => {
-  const { nameCategory, mainUrl, typeProductSelected } = useAppSelector(state => state.mainReducer)
+  const { nameCategory, mainUrl, typeProductSelected } = useAppSelector(
+    (state) => state.mainReducer
+  );
 
   const finalUrl = mainUrl + "/categories";
 
@@ -21,26 +26,28 @@ export const SelectedProduct = () => {
       const res = await fetch(finalUrl);
       const json = await res.json();
 
-      const data = json.find((category: ArrayProducts)  => category.name === nameCategory);      
-      dispatch(setType(data.products))
-      dispatch(relevantProduct(data.products))      
+      const data = json.find(
+        (category: ArrayProducts) => category.name === nameCategory
+      );
+      dispatch(setType(data.products));
+      dispatch(relevantProduct(data.products));
     };
 
     fetUrl();
-  }, [dispatch, finalUrl, nameCategory]);  
+  }, [dispatch, finalUrl, nameCategory]);
 
-  React.useEffect(() => {
-    const fetchProducts = async () => {
-      const allProducts = await fetch(mainUrl + "/products")
-      const json = await allProducts.json()
+  const fetchProducts = async () => {
+    const allProducts = await fetch(mainUrl + "/products");
+    const json = await allProducts.json();
 
-      dispatch(setType(json))
-      dispatch(relevantProduct(json))
-    }
+    dispatch(setType(json));
+    dispatch(relevantProduct(json));
+  };
 
-    fetchProducts()
-  }, [])
-  
+  if (typeProductSelected.length <= 0) {
+    fetchProducts();
+  }
+
   return (
     <div className="SelectedProduct">
       <FilterModal />
@@ -52,4 +59,4 @@ export const SelectedProduct = () => {
       <SortModal />
     </div>
   );
-}
+};

@@ -38,7 +38,13 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-        <button>Contact me</button>
+        <a 
+          href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJTHVmfWKBjdWLbXsbXxhTtdTDpcZpkRTsXGdPwdCVcpDZGlQQDPJWjQdMQhTDcjDLXLXXV"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button>Contact me</button>
+        </a>
       </div>
       <div className="Footer-logo">
         <a

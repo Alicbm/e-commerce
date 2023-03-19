@@ -5,7 +5,7 @@ import { FaMinus } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { cartProducts as setCart } from "../features/mainSlices";
 import { ArrayProducts } from "../types";
-import ad from "../icons/avengers_ad.png";
+import icon from "../icons/logo-todo.png";
 import { useNavigate } from "react-router-dom";
 import "./CartProducts.css";
 
@@ -66,55 +66,62 @@ export const CartProducts = () => {
         <p>Shoping Cart</p>
         <span>{cartProducts.length}</span>
       </div>
-      <div className="CartProducts-ad">
-        <img src={ad} alt="Ad" />
-      </div>
-      {
-        newValue.length > 0 ?
-          newValue.map((product: ArrayProducts) => (
-        <div className="CartProducts-product" key={product.id}>
-          <div className="CartProducts-product__img">
-            <img
-              src={product.image}
-              alt={product.name}
-            />
-          </div>
-          <div className="CartProducts-product__features">
-            <p className="CartProducts-product__features-brand">{product.brand}</p>
-            <p className="CartProducts-product__features-name">
-              {product.name.split(" ").splice(0, 4).join(" ")}...            </p>
-            <p className="CartProducts-product__features-price">
-              An unit: <strong>$ {product.price}</strong>
-            </p>
-          </div>
-          <div
-            onClick={() => handleDeleteProducts(product)}
-            className="CartProducts-product__delete">
-            <p>Delete Item:</p>
-            <span>
-              <FaTrashAlt />
-            </span>
-          </div>
-          <div className="CartProducts-product__add">
-            <p>Number items:</p>
-            <div className="CartProducts-product__add-buttons">
-              <button onClick={() => handleMenusProduct(product)}>
-                <FaMinus />
-              </button>
-              <span>{findSameProduct(product.id)}</span>
-              <button onClick={() => handlePlusProduct(product)}>
-                <BiPlusMedical />
-              </button>
+      <a
+        href="https://alicbm.github.io/todo-app/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="CartProducts-ad">
+          <p>"Take control of your habits. Take control of your life"</p>
+          <img src={icon} alt="Ad" />
+        </div>
+      </a>
+      {newValue.length > 0 ? (
+        newValue.map((product: ArrayProducts) => (
+          <div className="CartProducts-product" key={product.id}>
+            <div className="CartProducts-product__img">
+              <img src={product.image} alt={product.name} />
+            </div>
+            <div className="CartProducts-product__features">
+              <p className="CartProducts-product__features-brand">
+                {product.brand}
+              </p>
+              <p className="CartProducts-product__features-name">
+                {product.name.split(" ").splice(0, 4).join(" ")}...{" "}
+              </p>
+              <p className="CartProducts-product__features-price">
+                An unit: <strong>$ {product.price}</strong>
+              </p>
+            </div>
+            <div
+              onClick={() => handleDeleteProducts(product)}
+              className="CartProducts-product__delete"
+            >
+              <p>Delete Item:</p>
+              <span>
+                <FaTrashAlt />
+              </span>
+            </div>
+            <div className="CartProducts-product__add">
+              <p>Number items:</p>
+              <div className="CartProducts-product__add-buttons">
+                <button onClick={() => handleMenusProduct(product)}>
+                  <FaMinus />
+                </button>
+                <span>{findSameProduct(product.id)}</span>
+                <button onClick={() => handlePlusProduct(product)}>
+                  <BiPlusMedical />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      ))
-        :
+        ))
+      ) : (
         <div className="CartProducts-not-product">
           <p>Empty shopping cart, add some products!</p>
-          <button onClick={() => navigate('/products')}>See More</button>
+          <button onClick={() => navigate("/products")}>See More</button>
         </div>
-      }
+      )}
     </div>
   );
 };

@@ -26,18 +26,38 @@
   background-color: red;
   border-radius: 50%;
 }
+.CartProducts a{
+  text-decoration: none;
+}
 .CartProducts-ad{
   width: 100%;
   height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 2px;
-  background-color: var(--black);
+  background-color: var(--white);
+  background-image: url('../images/back-todo.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 10px -4px;
+  cursor: pointer;
+  padding: 10px;
   margin: 10px 0;
 }
+.CartProducts-ad:hover{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/back-todo.jpg');
+}
 .CartProducts-ad img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  
+  min-width: 120px;
+  max-width: 160px;
+}
+.CartProducts-ad p{
+  max-width: 250px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: var(--font-title);
+  color: #2262a1;
 }
 .CartProducts-product{
   width: 100%;
@@ -184,7 +204,11 @@
   font-size: 1.5rem;
   padding: 0 15px;
 }
-
+@media(min-width: 600px){
+  .CartProducts-ad p{
+    font-size: 2rem;
+  }
+}
 @media(min-width: 700px){
   .CartProducts-product{
     width: 100%;

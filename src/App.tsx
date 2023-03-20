@@ -8,7 +8,6 @@ import { SelectedProduct } from './SelectedProduct';
 import { SpecificProduct } from './SpecificProduct';
 import { Cart } from './Cart';
 import { Footer } from './Footer';
-import './App.css';
 
 function App() {
   return (

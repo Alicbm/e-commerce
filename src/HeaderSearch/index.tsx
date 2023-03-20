@@ -26,7 +26,7 @@ export const HeaderSearch = () => {
     };
 
     fetUrl();
-  }, [products]);
+  }, []);
 
   const handleTextInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value)

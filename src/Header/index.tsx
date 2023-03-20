@@ -28,7 +28,7 @@ export const Header = () => {
     };
 
     fetUrl();
-  }, [products]);
+  }, []);
 
   const handleTextInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value)

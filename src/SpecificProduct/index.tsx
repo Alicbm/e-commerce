@@ -1,7 +1,6 @@
 import React from 'react'
 import { Comments } from '../Comments'
 import { Description } from '../Description'
-import { ModalCategories } from '../ModalCategories'
 import { ReletedProducts } from '../ReletedProducts'
 import { useAppSelector } from '../store/hooks'
 import { ArrayProducts } from '../types'
@@ -31,7 +30,6 @@ export const SpecificProduct = () => {
 
   return (
     <div className='SpecificProduct'>
-      <ModalCategories />
       <Description />
       <Warning />
       <div className='SpecificProduct-related'>

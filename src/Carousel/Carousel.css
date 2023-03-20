@@ -45,3 +45,9 @@
     background-size: cover;
   }
 }
+@media(min-width: 1400px){
+  .Carousel{
+    max-width: 1053px;
+    margin: 0 auto;
+  }
+}

@@ -8,12 +8,14 @@ import { SelectedProduct } from './SelectedProduct';
 import { SpecificProduct } from './SpecificProduct';
 import { Cart } from './Cart';
 import { Footer } from './Footer';
+import { ModalCategories } from './ModalCategories';
 
 function App() {
   return (
     <HashRouter>
       <HeaderSearch />
       <Header />
+      <ModalCategories />
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/products' element={<SelectedProduct/>}/>

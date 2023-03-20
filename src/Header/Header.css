@@ -132,6 +132,7 @@
 @media(min-width: 1000px){
   .Header{
     width: calc(100% - 230px);
+    max-width: 1400px;
     padding: 0 40px;
   }
   .Header-menu{
@@ -140,5 +141,12 @@
   .Header-logo{
     width: 90%;
     display: flex;
+  }
+}
+@media(min-width: 1400px){
+  .Header{
+    width: 1053px;
+    margin-left: auto;
+    margin-right: 58.5px;
   }
 }

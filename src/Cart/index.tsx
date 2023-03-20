@@ -1,7 +1,6 @@
 import React from 'react'
 import { CartPayment } from '../CartPayment'
 import { CartProducts } from '../CartProducts'
-import { ModalCategories } from '../ModalCategories'
 import { ReletedProducts } from '../ReletedProducts'
 import { useAppSelector } from '../store/hooks'
 import { ArrayProducts } from '../types'
@@ -35,7 +34,6 @@ export const Cart = () => {
 
   return (
     <div className='Cart'>
-      <ModalCategories />
       <div className="Cart-container">
         <div className="Cart-container__content">
           <CartProducts />

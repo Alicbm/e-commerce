@@ -42,3 +42,10 @@
     background-color: #2b2b2b;
   }
 }
+@media(min-width: 1000px){
+  .Filter{
+    width: 1053px;
+    margin-left: auto;
+    margin-right: 58.5px;
+  }
+}

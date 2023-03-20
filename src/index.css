@@ -37,12 +37,16 @@ body::-webkit-scrollbar-thumb{
 .withouth-scroll{
   overflow-y: hidden;
 }
+
 @media(min-width: 1000px){
   #root{
+    position: relative;
+    max-width: 1400px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
+    margin: 0 auto;
   }
   .withouth-scroll{
     overflow-y: scroll;

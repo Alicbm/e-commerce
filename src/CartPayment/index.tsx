@@ -71,7 +71,9 @@ export const CartPayment = () => {
         <p>{totalPrice}</p>
       </div>
       <div className="CartPayment-button">
-        <button>Continue</button>
+        <button
+          onClick={() => alert('This option is not available because these products are not real.')}
+        >Continue</button>
       </div>
       <div className="CartPayment-location">
         <span>

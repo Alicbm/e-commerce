@@ -6,14 +6,16 @@ import { FaHeart } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { cartProducts as setCart } from "../features/mainSlices";
 import { ArrayProducts } from "../types";
+import { useNavigate } from "react-router-dom";
 import "./Description.css";
 
 export const Description = () => {
-  const { productSelected, mainUrl, cartProducts, relevantProduct } = useAppSelector(state => state.mainReducer)
+  const { productSelected, mainUrl, cartProducts } = useAppSelector(state => state.mainReducer)
   const [selected, setSelected] = React.useState<ArrayProducts[]>([]);
   const finalUrl = mainUrl + "/products";
   
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
   const dues: string = (productSelected.price / 12).toFixed();
 
   const handleChangeFavorite = async (
@@ -73,7 +75,14 @@ export const Description = () => {
             {productSelected?.description}
           </p>
           <div className="Description-info__buttons">
-            <button className="Description-info__buy">Buy Product</button>
+            <button 
+              onClick={() => {
+                handleCartProducts()
+                navigate('/cart')
+              }}
+              className="Description-info__buy">
+              Buy Product
+            </button>
             <button 
               onClick={handleCartProducts}
               className="Description-info__add">

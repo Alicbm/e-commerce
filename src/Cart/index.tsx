@@ -18,20 +18,20 @@ export const Cart = () => {
       const res = await fetch(finalUrl);
       const json = await res.json();
 
-      let dataSelected = []
+      let dataSelected: ArrayProducts[] = []
 
-      for(let i = 0; i < 10; i++){
+      for (let i = 0; i < 15; i++) {
         const random = Math.floor(Math.random() * json.length - 1) + 1;
-        dataSelected.push(json[random])
-        console.log(random);
-        
+        if (!dataSelected.includes(json[random])) {
+          dataSelected.push(json[random])
+        }
       }
-
+            
       setData(dataSelected)      
     }
 
     fetUrl();
-  }, [data.length, finalUrl]);
+  }, []);
 
   return (
     <div className='Cart'>

@@ -44,7 +44,8 @@ export const CartProducts = () => {
       }
     })
 
-    dispatch(setCart([...values]))    
+    dispatch(setCart([...values])) 
+    localStorage.setItem('BARGAILIX_CART_PRODUCTS', JSON.stringify([...values]));
   }
 
   const handleMenusProduct = (product: ArrayProducts) => {
@@ -52,12 +53,16 @@ export const CartProducts = () => {
     const index = cartProducts.findIndex((item: ArrayProducts) => item.id === product.id)
     
     values.splice(index, 1)
-    dispatch(setCart([...values]))  
+    dispatch(setCart([...values])) 
+    
+    localStorage.setItem('BARGAILIX_CART_PRODUCTS', JSON.stringify([...values]));
   }
 
   const handleDeleteProducts = (product: ArrayProducts) => {
     const values = cartProducts.filter((item: ArrayProducts) => item.id !== product.id)
-    dispatch(setCart(values))  
+    dispatch(setCart(values)) 
+
+    localStorage.setItem('BARGAILIX_CART_PRODUCTS', JSON.stringify([...values]));
   }
 
   return (

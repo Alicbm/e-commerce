@@ -35,6 +35,8 @@ export const Recommendations = (prop: {
   const sendData = (product: ArrayProducts) => {
     dispatch(setProduct(product));
     navigate("/description");
+
+    localStorage.setItem('BARGAILIX_PRODUCT_SELECTED', JSON.stringify(product));
   };
 
   const handleCartProducts = (product: ArrayProducts) => {
@@ -48,6 +50,7 @@ export const Recommendations = (prop: {
     })
 
     dispatch(setCart([...values]))
+    localStorage.setItem('BARGAILIX_CART_PRODUCTS', JSON.stringify([...values]));
   }
 
   return (

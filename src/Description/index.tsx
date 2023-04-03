@@ -57,6 +57,7 @@ export const Description = () => {
     })
 
     dispatch(setCart([...values]))
+    localStorage.setItem('BARGAILIX_CART_PRODUCTS', JSON.stringify([...values]));
   }
 
   return (

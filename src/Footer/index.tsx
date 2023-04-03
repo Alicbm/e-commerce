@@ -39,7 +39,7 @@ export const Footer = () => {
           </div>
         </div>
         <a 
-          href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJTHVmfWKBjdWLbXsbXxhTtdTDpcZpkRTsXGdPwdCVcpDZGlQQDPJWjQdMQhTDcjDLXLXXV"
+          href="mailto:alicmejia175@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
         >

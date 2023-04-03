@@ -12,7 +12,7 @@ export const Comments = () => {
   const finalUrl = mainUrl + "/products";
 
   React.useEffect(() => {
-    const id = productSelected.id;
+    const id = productSelected.id || "1";
 
     const fetUrl = async () => {
       const res = await fetch(finalUrl + "/" + id);

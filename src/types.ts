@@ -29,3 +29,22 @@ export type ArrayCategory = {
   name: string,
   products: []
 }
+
+export type DescriptionProduct = {
+  brand: "",
+  category: {
+    id: 0,
+    name: '',
+    image: '',
+    createAt: ''
+  },
+  categoryId: 0,
+  createAt: "",
+  description: "",
+  favorite: false,
+  id: 0,
+  image: "",
+  name: "",
+  price: 0,
+  product: "",
+};

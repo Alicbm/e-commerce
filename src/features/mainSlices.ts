@@ -1,23 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { storage } from "../functions/function";
+import { ArrayProducts, DescriptionProduct } from "../types";
 
-const descriptionProduct = {
-  brand: "",
-  category: {
-    id: 0,
-    name: '',
-    image: '',
-    createAt: ''
-  },
-  categoryId: 0,
-  createAt: "",
-  description: "",
-  favorite: false,
-  id: 0,
-  image: "",
-  name: "",
-  price: 0,
-  product: "",
-};
+const dataProductSelected: DescriptionProduct = storage('BARGAILIX_PRODUCT_SELECTED')
+const dataCartProducts: ArrayProducts[] = storage('BARGAILIX_CART_PRODUCTS')
 
 const initialState = {
   mainUrl: "https://online-store-production.up.railway.app/api/v1/",
@@ -26,12 +12,12 @@ const initialState = {
   filterModal: false,
   sortModal: false,
   nameCategory: "",
-  productSelected: descriptionProduct,
+  productSelected: dataProductSelected,
   typeProductSelected: [],
   relevantProduct: [],
   refreshValues: false,
   refreshValuesTwo: false,
-  cartProducts: [],
+  cartProducts: dataCartProducts,
   comments: [],
 };
 

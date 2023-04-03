@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+# Bargainix. :convenience_store:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hello! Welcome to this repository.
 
-## Available Scripts
+On this occasion I will present one of my best projects, **Bargainix**, this is an e-commerce, which consumes the data from a REST API created by me, to review this in depth you can follow the following [Bargainix API REST](https://github.com/Alicbm/online-store "Bargainix API REST").
 
-In the project directory, you can run:
+This application has different features, among these we have a main modal, this is for the **Categories**, here you can select only the products you want to see. In the categories there are different products for each category, you can choose a product and see only the product you selected. Bargainix has 6 categories and they are as follows:
 
-### `npm start`
+- Tecnology.
+- Work out.
+- Home Features.
+- Clothing.
+- Tools.
+- Toys.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+On the other hand, we have 2 more modals, one to filter products, it is possible to filter products by different brands or by price ranges. The price ranges are:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Products with prices less than $200.
+- Products with prices between $200 and $500.
+- Products with prices over $500.
 
-### `npm test`
+The last modal has the function of sort the products, by **Lower Prices**, **Higher Prices**, or the default option **More relevants**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The modals are important features in the application, but they are not the only options, we can search for products by name, or by the description of each product, even by price, we can do these searches in the input search, it is available in all routes. Another feature of this app is the product description path, here you can review the specific description of the products, you will see a carousel of recommended products for you.
 
-### `npm run build`
+However, the app has more features, a very important option is the shopping cart, you can select products and send these products to the shopping cart route, already in this route, you can add more products, if it is the same product or other products. There is a section that calculates the price of the different products in the shopping cart, and shows you the final price of all the products that you have added to the cart.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Finally, we have two last options, the first, is the possibility of writing comments, there is a section where you can read the comments of other people or read your comment, here you can select the quality of the product, with three different ranges, **Good** (five stars), **Fair** (three stars) or **Poor** (one star). Lastly, you can select any product you like as a favorite.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Built With :hammer_and_wrench:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Bargainix API 
+- React Js
+- Typescript
+- Redux Toolkit
+- HTML
+- CSS
+- Git
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+*Ceated by Alic Barandica, FullStack Developer.*

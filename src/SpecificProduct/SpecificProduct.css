@@ -2,6 +2,55 @@
   width: 90%;
   margin: 0 auto;
 }
+.SpecificProduct-related .Recommendations{
+  width: 100%;
+}
+.SpecificProduct-related .Recommendations-container{
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  gap: 5px;
+}
+.SpecificProduct-related .Recommendations-container::-webkit-scrollbar{
+  height: 5px;
+  background: var(--gray);
+}
+.SpecificProduct-related .Recommendations-container::-webkit-scrollbar-thumb{
+  height: 5px;
+  border-radius: 10px;
+  background-color: var(--dark-gray);
+}
+.SpecificProduct-related .Recommendations-container__products{
+  min-width: 150px;
+  max-width: 170px;
+  height: 230px;
+  position: relative;
+  background-color: var(--white);
+  padding: 15px;
+  margin: 0 auto 10px 5px;
+}
+@media(min-width:700px){
+  .SpecificProduct-related .Recommendations{
+    width: 100%;
+    max-width: 1100px;
+    background-color: var(--white);
+    padding: 10px;
+  }
+  .SpecificProduct-related .Recommendations-title{
+    margin-top: 10px;
+  }
+  .SpecificProduct-related .Recommendations-container__products{
+    min-width: 170px;
+    max-width: 170px;
+    background-color: var(--gray);
+    margin-left: 10px;
+    margin-right: 0;
+    cursor: pointer;
+  }
+  .SpecificProduct-related .Recommendations-container__products:hover{
+    box-shadow: 0px 1px 8px #979797;
+  }
+}
 @media(min-width: 1000px){
   .SpecificProduct{
     width: calc(100% - 230px);

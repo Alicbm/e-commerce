@@ -74,7 +74,7 @@ export const Recommendations = (prop: {
                 USD {product.price}
               </h4>
               <p className="Recommendations-container__products-description">
-                {product.description.split(" ").splice(0, 10).join(" ")}...
+                {product.description.split(" ").splice(0, 7).join(" ")}...
               </p>
             </div>
             <div 

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Comments } from '../Comments'
 import { Description } from '../Description'
-import { ReletedProducts } from '../ReletedProducts'
 import { useAppSelector } from '../store/hooks'
 import { ArrayProducts } from '../types'
 import { Warning } from '../Warning'
 import { WriteComments } from '../WriteComments'
 import './SpecificProduct.css'
+import { Recommendations } from '../Recommendations'
 
 export const SpecificProduct = () => {
   const { productSelected, mainUrl } = useAppSelector(state => state.mainReducer)
@@ -33,7 +33,7 @@ export const SpecificProduct = () => {
       <Description />
       <Warning />
       <div className='SpecificProduct-related'>
-        <ReletedProducts data={data} title='Related Products'/>
+        <Recommendations data={data} title='Related Products'/>
       </div>
       <WriteComments />
       <Comments />

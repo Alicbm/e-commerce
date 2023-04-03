@@ -10,7 +10,7 @@ export const Comercial = () => {
         <p>This is a place to know the new and the best movies!</p>
 
         <a
-          href="https://alicbm.github.io/pelisflix/"
+          href="https://pelisflix2.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
         >

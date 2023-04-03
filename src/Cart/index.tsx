@@ -1,9 +1,9 @@
 import React from 'react'
 import { CartPayment } from '../CartPayment'
 import { CartProducts } from '../CartProducts'
-import { ReletedProducts } from '../ReletedProducts'
 import { useAppSelector } from '../store/hooks'
 import { ArrayProducts } from '../types'
+import { Recommendations } from '../Recommendations'
 import './Cart.css'
 
 export const Cart = () => {
@@ -39,7 +39,10 @@ export const Cart = () => {
           <CartProducts />
           <CartPayment />
         </div>
-        <ReletedProducts data={data} title='Might interest you'/>
+        <div className='Cart-container__interest'>
+          <Recommendations data={data} title='Might interest you'/>
+          {/* <ReletedProducts data={data} title='Might interest you'/> */}
+        </div>
       </div>
     </div>
   )

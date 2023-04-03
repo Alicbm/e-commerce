@@ -1,4 +1,5 @@
 # Bargainix. :convenience_store:
+> "The online store with the best selection of products"
 
 Hello! Welcome to this repository.
 
@@ -22,6 +23,9 @@ On the other hand, we have 2 more modals, one to filter products, it is possible
 The last modal has the function of sort the products, by **Lower Prices**, **Higher Prices**, or the default option **More relevants**.
 
 The modals are important features in the application, but they are not the only options, we can search for products by name, or by the description of each product, even by price, we can do these searches in the input search, it is available in all routes. Another feature of this app is the product description path, here you can review the specific description of the products, you will see a carousel of recommended products for you.
+
+[![Pelisflix2](https://raw.githubusercontent.com/Alicbm/e-commerce/master/src/images/app_photo.png "Bargailix")](https://github.com/Alicbm/e-commerce/blob/master/src/images/app_photo.png "Bargailix")
+> It is not possible to buy those products, because they are not real.
 
 However, the app has more features, a very important option is the shopping cart, you can select products and send these products to the shopping cart route, already in this route, you can add more products, if it is the same product or other products. There is a section that calculates the price of the different products in the shopping cart, and shows you the final price of all the products that you have added to the cart.
 

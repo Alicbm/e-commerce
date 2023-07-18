@@ -12,7 +12,7 @@ export const Footer = () => {
         <div className="Footer-myself__icons">
           <div>
             <a
-              href="https://alicbm.github.io/alicbarandica.github.io/"
+              href="https://portfolio-alicbm.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -48,7 +48,7 @@ export const Footer = () => {
       </div>
       <div className="Footer-logo">
         <a
-          href="https://alicbm.github.io/alicbarandica.github.io/"
+          href="https://portfolio-alicbm.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
